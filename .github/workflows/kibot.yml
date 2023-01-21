@@ -7,14 +7,15 @@ on:
     paths:
       - 'cc-19-badge/*.kicad_sch'
       - 'cc-19-badge/*.kicad_pcb'
+      - 'cc-19-badge/*.kibot.yaml'
       - '.github/workflows/kibot.yml'
       - '*.kibot.yaml'
   pull_request:
     paths:
       - 'cc-19-badge/*.kicad_sch'
       - 'cc-19-badge/*.kicad_pcb'
+      - 'cc-19-badge/*.kibot.yaml'
       - '.github/workflows/kibot.yml'
-      - '*.kibot.yaml'
   repository_dispatch:
     types: [run_qs]
 
