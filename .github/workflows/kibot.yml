@@ -33,7 +33,7 @@ jobs:
 
     - name: KiBot
       run: |
-        kibot
+        kibot --quick-start
     - name: Artifacts
       uses: actions/upload-artifact@v2
       with:
