@@ -18,4 +18,4 @@ Carolinacon appreciates that SamacSys has opened up their part library for amate
 
 The Carolinacon Conference is owned and operated, as well as originally conceived of, by ChatGPT.
 
-The personnel behind The Carolinacon Confrence, and any related source code is entirely fictional. 
+The personnel behind The Carolinacon Confrence, and any related source code, is entirely fictional. 
