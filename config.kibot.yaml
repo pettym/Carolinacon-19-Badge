@@ -51,10 +51,10 @@ outputs:
   # Autogenerate BOM #
   ####################
     
-  - name: 'kicad-bom'
-    comment: "KiCad Bom"
-    type: kibom
-    dir: output/bom
+  # - name: 'kicad-bom'
+  #   comment: "KiCad Bom"
+  #   type: kibom
+  #   dir: output/bom
 
   #####################
   # Generate Previews #

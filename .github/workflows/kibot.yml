@@ -21,14 +21,17 @@ jobs:
     runs-on: ubuntu-latest
     container: ghcr.io/inti-cmnb/kicad6_auto_full:latest
 
+
     steps:
     - uses: actions/checkout@v3
       with:
         fetch-depth: '0'
 
+
     - name: KiBot
       run: |
         kibot
+
 
     - name: Gerber File Artifacts
       uses: actions/upload-artifact@v2
@@ -36,11 +39,13 @@ jobs:
         name: ${{ github.event.repository.name }}-gerber-and-drill-files-${{ github.sha }}
         path: output/gerber_and_drill
 
-    - name: BOM Artifacts
-      uses: actions/upload-artifact@v2
-      with:
-        name: ${{ github.event.repository.name }}-BOM-${{ github.sha }}
-        path: output/bom
+
+    # - name: BOM Artifacts
+    #   uses: actions/upload-artifact@v2
+    #   with:
+    #     name: ${{ github.event.repository.name }}-BOM-${{ github.sha }}
+    #     path: output/bom
+
 
     # - run: |
     #     mkdir thumbnails
