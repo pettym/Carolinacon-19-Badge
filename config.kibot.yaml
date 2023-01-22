@@ -51,16 +51,18 @@ outputs:
   # Autogenerate BOM #
   ####################
     
-  - name: 'kicad-bom'
-    comment: "KiCad Bom"
-    type: kibom
-    dir: bom
+  # - name: 'kicad-bom'
+  #   comment: "KiCad Bom"
+  #   type: kibom
+  #   dir: bom
 
   #####################
   # Generate Previews #
   #####################
 
-  - name: 'test'
-    comment: "preview generation"
-    type: pcb_print
-    dir: testing
+  - name: 'Previews'
+    comment: "preview_render"
+    type: pcbdraw
+    dir: preview_render
+    options:
+      format: png
