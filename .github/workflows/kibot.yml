@@ -47,19 +47,19 @@ jobs:
     #     path: output/bom
 
 
-    - run: |
-        mkdir thumbnails
+    # - run: |
+    #     mkdir thumbnails
         
-        # First remove any existing thumbnails
-        # This way there will never be "out-of-date" thumbnails, if new ones aren't generated
-        # It is annoying to have to git pull after every push
-        # I am considering only generating the previews on MR/tagged/release/etc
-        rm -f thumbnails/* || true
+    #     # First remove any existing thumbnails
+    #     # This way there will never be "out-of-date" thumbnails, if new ones aren't generated
+    #     # It is annoying to have to git pull after every push
+    #     # I am considering only generating the previews on MR/tagged/release/etc
+    #     rm -f thumbnails/* || true
         
-        cp output/thumbnails/* thumbnails/.
-        git config user.name github-actions
-        git config user.email github-actions@github.com
-        git add thumbnails/.
-        git commit -m "thumbnails"
-        git push
+    #     cp output/thumbnails/* thumbnails/.
+    #     git config user.name github-actions
+    #     git config user.email github-actions@github.com
+    #     git add thumbnails/.
+    #     git commit -m "thumbnails"
+    #     git push
 
