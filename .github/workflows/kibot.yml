@@ -1,39 +1,65 @@
 name: "KiBot Build"
 
-# Controls when the action will run. Triggers the workflow on push or pull request
-# events but only for the master branch
 on:
   push:
     paths:
-      - 'cc-19-badge/*.kicad_sch'
-      - 'cc-19-badge/*.kicad_pcb'
+      - '*.kicad_sch'
+      - '*.kicad_pcb'
+      - '*.kibot.yaml'
       - '.github/workflows/kibot.yml'
   pull_request:
     paths:
-      - 'cc-19-badge/*.kicad_sch'
-      - 'cc-19-badge/*.kicad_pcb'
+      - '*.kicad_sch'
+      - '*.kicad_pcb'
+      - '*.kibot.yaml'
       - '.github/workflows/kibot.yml'
   repository_dispatch:
     types: [run_qs]
 
-# A workflow run is made up of one or more jobs that can run sequentially or in parallel
 jobs:
-  quick:
+  KiBot:
     runs-on: ubuntu-latest
     container: ghcr.io/inti-cmnb/kicad6_auto_full:latest
+
 
     steps:
     - uses: actions/checkout@v3
       with:
-        # So we can run a diff between last 2 changes
         fetch-depth: '0'
 
-    - name: Quick Start
+
+    - name: KiBot
       run: |
-        kibot --quick-start
-    - name: Retrieve results
+        kibot
+
+
+    - name: Gerber File Artifacts
       uses: actions/upload-artifact@v2
       with:
-        name: Automatic_outputs
-        path: Generated
+        name: ${{ github.event.repository.name }}-gerber-and-drill-files-${{ github.sha }}
+        path: output/gerber_and_drill
+
+
+    # - name: BOM Artifacts
+    #   uses: actions/upload-artifact@v2
+    #   with:
+    #     name: ${{ github.event.repository.name }}-BOM-${{ github.sha }}
+    #     path: output/bom
+
+
+    # - run: |
+    #     mkdir thumbnails
+        
+    #     # First remove any existing thumbnails
+    #     # This way there will never be "out-of-date" thumbnails, if new ones aren't generated
+    #     # It is annoying to have to git pull after every push
+    #     # I am considering only generating the previews on MR/tagged/release/etc
+    #     rm -f thumbnails/*
+        
+    #     cp output/thumbnails/* thumbnails/.
+    #     git config user.name github-actions
+    #     git config user.email github-actions@github.com
+    #     git add thumbnails/.
+    #     git commit -m "thumbnails"
+    #     git push
 
