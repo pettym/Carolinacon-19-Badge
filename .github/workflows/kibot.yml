@@ -56,9 +56,9 @@ jobs:
         mkdir -p thumbnails
         rm -f thumbnails/* || true        
     #     cp output/thumbnails/* thumbnails/.
-        git config user.name github-actions
-        git config user.email github-actions@github.com
-        git add thumbnails/.
-        git commit -m "thumbnails"
-        git push
+        # git config user.name github-actions
+        # git config user.email github-actions@github.com
+        # git add thumbnails/.
+        # git commit -m "thumbnails"
+        # git push
 
