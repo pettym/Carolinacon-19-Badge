@@ -1,2 +1,3 @@
 *-backups
-third-party-schematics/*
+
+#third-party-schematics/*
