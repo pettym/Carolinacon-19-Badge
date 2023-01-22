@@ -100,4 +100,5 @@ outputs:
     dir: output/thumbnails
     options:
       auto_crop: true
+      rotate_y: 5
       ray_tracing: false
