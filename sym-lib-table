@@ -1,3 +1,5 @@
 (sym_lib_table
   (lib (name "OS102011MA1QN1")(type "Legacy")(uri "${KIPRJMOD}/third-party-schematics/OS102011MA1QN1.lib")(options "")(descr ""))
+  (lib (name "ST25DV04KC-IE8S3")(type "Legacy")(uri "${KIPRJMOD}/third-party-schematics/ST25DV04KC-IE8S3.lib")(options "")(descr ""))
+  (lib (name "860020372001")(type "Legacy")(uri "${KIPRJMOD}/third-party-schematics/860020372001.lib")(options "")(descr ""))
 )
