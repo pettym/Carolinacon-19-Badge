@@ -16,8 +16,7 @@ on:
   repository_dispatch:
     types: [run_qs]
 
-env:
-  TEST: ${{ 
+
 
 jobs:
   KiBot:
@@ -51,10 +50,11 @@ jobs:
 
 
     - name: Thumbnails
+      if: ${{ github.event.name != 'push' }}
       run: |
         mkdir -p thumbnails
         rm -f thumbnails/* || true        
-    #     cp output/thumbnails/* thumbnails/.
+        cp output/thumbnails/* thumbnails/.
         # git config user.name github-actions
         # git config user.email github-actions@github.com
         # git add thumbnails/.
