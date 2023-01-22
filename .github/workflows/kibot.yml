@@ -49,7 +49,7 @@ jobs:
 
     - name: Thumbnails
       run: |
-        mkdir thumbnails        
+        mkdir -p thumbnails
         # First remove any existing thumbnails
         # This way there will never be "out-of-date" thumbnails, if new ones aren't generated
         # It is annoying to have to git pull after every push
