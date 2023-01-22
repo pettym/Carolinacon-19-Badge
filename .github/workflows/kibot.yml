@@ -50,7 +50,7 @@ jobs:
     #     path: output/bom
 
     - name: test
-      run: echo "${BRANCH_NAME//\//- }"
+      run: echo "${{ env.RELEASE_VERSION }}"; echo ${{github.ref_name}}
 
     - name: Thumbnails
       if: ${{ github.event_name != 'push' }}
