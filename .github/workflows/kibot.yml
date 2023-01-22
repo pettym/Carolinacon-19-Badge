@@ -1,7 +1,5 @@
 name: "KiBot Build"
 
-# Controls when the action will run. Triggers the workflow on push or pull request
-# events but only for the master branch
 on:
   push:
     paths:
@@ -18,7 +16,6 @@ on:
   repository_dispatch:
     types: [run_qs]
 
-# A workflow run is made up of one or more jobs that can run sequentially or in parallel
 jobs:
   KiBot:
     runs-on: ubuntu-latest
@@ -27,14 +24,13 @@ jobs:
     steps:
     - uses: actions/checkout@v3
       with:
-        # So we can run a diff between last 2 changes
         fetch-depth: '0'
 
     - name: KiBot
       run: |
         kibot
 
-    - name: Gerber Files
+    - name: Gerber File Artifacts
       uses: actions/upload-artifact@v2
       with:
         name: ${{ github.event.repository.name }}-gerber-and-drill-files-${{ github.sha }}
