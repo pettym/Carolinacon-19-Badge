@@ -7,17 +7,9 @@ on:
       - '*.kicad_pcb'
       - '*.kibot.yaml'
       - '.github/workflows/kibot.yml'
-  pull_request:
-    paths:
-      - '*.kicad_sch'
-      - '*.kicad_pcb'
-      - '*.kibot.yaml'
-      - '.github/workflows/kibot.yml'
   repository_dispatch:
     types: [run_qs]
 
-env:
-  TEST: hello
 
 jobs:
   KiBot:
@@ -37,7 +29,6 @@ jobs:
 
 
     - name: JLCPCB Gerber File Artifacts
-      if: ${{ github.event_name != 'pull_request' }}
       uses: actions/upload-artifact@v2
       with:
         name: jlcpcb-files-${{github.event.repository.name}}-${{github.ref_name}}-${{github.sha}}
@@ -50,12 +41,9 @@ jobs:
     #     name: bom-${{github.event.repository.name}}-${{github.ref_name}}-${{github.sha}}
     #     path: output/bom
 
-    - name: test
-      run: echo "${{ github.event_name }}"
-
 
     - name: Thumbnails
-      if: ${{ github.event_name != 'push' }}
+      if: startsWith(github.ref, 'refs/tags/v')
       run: |
         mkdir -p thumbnails
         rm -f thumbnails/* || true
