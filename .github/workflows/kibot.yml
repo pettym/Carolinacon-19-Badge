@@ -36,12 +36,18 @@ jobs:
         name: ${{ github.event.repository.name }}-gerber-and-drill-files-${{ github.sha }}
         path: output/gerber_and_drill
 
-    # - run: |
-    #     mkdir thumbnails
-    #     cp output/thumbnails/* thumbnails/.
-    #     git config user.name github-actions
-    #     git config user.email github-actions@github.com
-    #     git add thumbnails/.
-    #     git commit -m "thumbnails"
-    #     git push
+    - run: |
+        # First attempt to remove thumbnails.
+        # This way there will never be "out-of-date" thumbnails
+        # It is annoying to have to git pull after every push
+        # I am considering only generating the previews on MR/tagged/release/etc
+        mkdir thumbnails
+        rm thumbnails/*
+        
+        cp output/thumbnails/* thumbnails/.
+        git config user.name github-actions
+        git config user.email github-actions@github.com
+        git add thumbnails/.
+        git commit -m "thumbnails"
+        git push
 
