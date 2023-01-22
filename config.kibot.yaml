@@ -54,15 +54,15 @@ outputs:
   # - name: 'kicad-bom'
   #   comment: "KiCad Bom"
   #   type: kibom
-  #   dir: bom
+  #   dir: output/bom
 
   #####################
   # Generate Previews #
   #####################
 
-  # - name: 'Previews'
-  #   comment: "preview_render"
-  #   type: pcbdraw
-  #   dir: output/thumbnails
-  #   options:
-  #     format: png
+  - name: 'Previews'
+    comment: "preview_render"
+    type: pcbdraw
+    dir: output/thumbnails
+    options:
+      format: png
