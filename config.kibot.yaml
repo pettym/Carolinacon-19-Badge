@@ -95,10 +95,10 @@ outputs:
     options:
       format: png
 
-  # - name: '3d Render'
-  #   type: render_3d
-  #   dir: output/thumbnails
-  #   options:
-  #     auto_crop: true
-  #     rotate_x: 0.25
-  #     ray_tracing: false
+  - name: '3d Render'
+    type: render_3d
+    dir: output/thumbnails
+    options:
+      auto_crop: true
+      rotate_x: 1
+      ray_tracing: false

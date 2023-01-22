@@ -1,4 +1,4 @@
-20588543699417006
+20590218169504575
 Audio_Module
 Reverb_BTDR-1H
 Digital Reverberation Unit, http://www.belton.co.kr/inc/downfile.php?seq=17&file=pdf (footprint from http://www.uk-electronic.de/PDF/BTDR-1.pdf)
@@ -86439,6 +86439,13 @@ third-party-schematics
 CAPPRD200W52D500H1250
 5.0 x 11.0
 Capacitor Polarised
+0
+2
+2
+third-party-schematics
+K104K15X7RF5TH5
+K104K15X7RF5TH5-1
+Capacitor
 0
 2
 2
