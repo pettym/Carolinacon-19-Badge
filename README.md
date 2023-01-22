@@ -1,4 +1,4 @@
-# Message From The Carolinacon Team
+# Carolinacon Face Reveal:
 
 ![The-Faces-Of-Carolinacon](./source_images/red.png)
 
