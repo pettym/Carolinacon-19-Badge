@@ -33,11 +33,11 @@ jobs:
         kibot
 
 
-    - name: Gerber File Artifacts
+    - name: JLCPCB Gerber File Artifacts
       uses: actions/upload-artifact@v2
       with:
-        name: ${{ github.event.repository.name }}-gerber-and-drill-files-${{ github.sha }}
-        path: output/gerber_and_drill
+        name: ${{ github.event.repository.name }}-jlcpcb-files-${{ github.sha }}
+        path: output/jlcpcb_gerber_and_drill
 
 
     # - name: BOM Artifacts
