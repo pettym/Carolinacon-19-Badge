@@ -31,14 +31,14 @@ jobs:
     - name: JLCPCB Gerber File Artifacts
       uses: actions/upload-artifact@v3
       with:
-        name: jlcpcb-files-${{github.event.repository.name}}-${{github.ref_name}}-${{github.sha}}
+        name: jlcpcb-files-${{github.event.repository.name}}-${{github.sha}}-${{github.ref_name}}
         path: output/jlcpcb_gerber_and_drill
 
 
     # - name: BOM Artifacts
     #   uses: actions/upload-artifact@v2
     #   with:
-    #     name: bom-${{github.event.repository.name}}-${{github.ref_name}}-${{github.sha}}
+    #     name: bom-${{github.event.repository.name}}-${{github.sha}}-${{github.ref_name}}
     #     path: output/bom
 
 
