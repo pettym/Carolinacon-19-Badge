@@ -40,7 +40,6 @@ jobs:
         name: kibot_output
         path: output
 
-    - uses: actions/checkout@v3
     - run: |
           cp output/preview_render/* .
           git config user.name github-actions
