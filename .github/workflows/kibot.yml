@@ -50,7 +50,7 @@ jobs:
     #     path: output/bom
 
     - name: test
-      run: echo "${{ github.ref }}"
+      run: echo "${{ github.ref.type }}-${{ github.ref }}"
 
     - name: Thumbnails
       if: ${{ github.event_name != 'push' }}
