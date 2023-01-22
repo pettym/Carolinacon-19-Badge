@@ -16,6 +16,8 @@ on:
   repository_dispatch:
     types: [run_qs]
 
+env:
+  TEST: hello
 
 jobs:
   KiBot:
@@ -47,9 +49,11 @@ jobs:
     #     name: ${{ github.event.repository.name }}-BOM-${{ github.sha }}
     #     path: output/bom
 
+    - name: test
+      run: echo "${{ github.ref }}"
 
     - name: Thumbnails
-      if: ${{ github.event.name == 'pull_request' }}
+      if: ${{ github.event_name != 'push' }}
       run: |
         mkdir -p thumbnails
         rm -f thumbnails/* || true        
