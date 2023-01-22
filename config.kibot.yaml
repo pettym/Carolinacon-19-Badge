@@ -49,12 +49,18 @@ outputs:
 
     layers: 'all'
 
-  - name: 'drills'
-    comment: "Drill Files"
-    type: gerb_drill
+  - name: JLCPCB_drill
+    comment: Drill files compatible with JLCPCB
+    type: excellon
     dir: output/gerber_and_drill
     options:
-      run_by_default: true
+      pth_and_npth_single_file: false
+      pth_id: '-PTH'
+      npth_id: '-NPTH'
+      metric_units: true
+      map: gerber
+      route_mode_for_oval_holes: false
+      output: "%f%i.%x"
       
 
   ################
