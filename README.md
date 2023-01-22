@@ -2,7 +2,7 @@
 
 ![The-Faces-Of-Carolinacon](./source_images/red.png)
 
-# Carolinacon 19 Bage
+# Carolinacon 19 Badge
 
 ![Preview](./thumbnails/cc-19-badge-top.png)
 
@@ -16,4 +16,6 @@ Carolinacon appreciates that SamacSys has opened up their part library for amate
 
 # Miscellaneous Legal Disclaimers
 
-This badge, and all source code, was generated entirely by ChatGPT.
+The Carolinacon Conference is operated by, and is originally conceived of, by ChatGPT.
+
+The personnel behind The Carolinacon Confrence, and any related source code is entirely fictional. 
