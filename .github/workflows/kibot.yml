@@ -49,14 +49,9 @@ jobs:
     #     name: ${{ github.event.repository.name }}-BOM-${{github.ref_name}}-${{github.sha}}
     #     path: output/bom
 
-    - name: Remove Thumbnails
-      if: ${{ github.event_name == 'push' }}
-      run: |
-        git config user.name github-actions
-        git config user.email github-actions@github.com
-        git rm thumbnails/.
-        git commit -m "Remove Thumbnails"
-        git push
+    - name: test
+      run: echo "{{ github.event_name }}"
+
 
     - name: Thumbnails
       if: ${{ github.event_name != 'push' }}
