@@ -53,7 +53,9 @@ outputs:
     comment: "Drill Files"
     type: gerb_drill
     dir: output/gerber_and_drill
-    
+    options:
+      run_by_default: true
+      
 
   ################
   # Generate BOM #
