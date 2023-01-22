@@ -34,11 +34,11 @@ jobs:
       run: |
         kibot
 
-    - name: Artifacts
+    - name: Gerber Files
       uses: actions/upload-artifact@v2
       with:
-        name: kibot_output
-        path: output
+        name: gerber-${{ github.sha }}
+        path: output/gerber
 
     # - run: |
     #     mkdir thumbnails
