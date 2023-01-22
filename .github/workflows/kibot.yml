@@ -37,11 +37,12 @@ jobs:
         path: output/gerber_and_drill
 
     - run: |
-        # First attempt to remove thumbnails.
-        # This way there will never be "out-of-date" thumbnails
+        mkdir thumbnails
+        
+        # First remove any existing thumbnails
+        # This way there will never be "out-of-date" thumbnails, if new ones aren't generated
         # It is annoying to have to git pull after every push
         # I am considering only generating the previews on MR/tagged/release/etc
-        mkdir thumbnails
         rm thumbnails/*
         
         cp output/thumbnails/* thumbnails/.
