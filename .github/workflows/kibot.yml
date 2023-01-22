@@ -39,7 +39,7 @@ jobs:
     - name: JLCPCB Gerber File Artifacts
       uses: actions/upload-artifact@v2
       with:
-        name: ${{ github.event.repository.name }}-jlcpcb-files-${{ github.sha }}
+        name: ${{ github.event.repository.name }}-jlcpcb-files-${{ github.sha }}-${{github.ref_name}}
         path: output/jlcpcb_gerber_and_drill
 
 
@@ -50,7 +50,7 @@ jobs:
     #     path: output/bom
 
     - name: test
-      run: echo "${{ env.RELEASE_VERSION }}"; echo ${{github.ref_name}}
+      run: echo "${{ env.RELEASE_VERSION }}"; echo "${{github.ref_name}}"
 
     - name: Thumbnails
       if: ${{ github.event_name != 'push' }}
