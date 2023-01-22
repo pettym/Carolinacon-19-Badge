@@ -32,13 +32,8 @@ jobs:
         fetch-depth: '0'
 
     - name: KiBot
-      uses: INTI-CMNB/KiBot@v2
-      with:
-        config: config.kibot.yaml
-        dir: output
-        schema: '*.kicad_sch'
-        board: '*.kicad_pcb'
-        
+      run: |
+        kibot -c "cc-19-badge/config.kibot.yaml" -e "cc-19-badge/*.kicad_sch" -b "cc-19-badge/*.kicad_pcb"
     - name: Artifacts
       uses: actions/upload-artifact@v2
       with:
