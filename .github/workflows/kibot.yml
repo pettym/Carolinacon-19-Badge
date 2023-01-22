@@ -36,7 +36,7 @@ jobs:
     - name: JLCPCB Gerber File Artifacts
       uses: actions/upload-artifact@v2
       with:
-        name: ${{ github.event.repository.name }}-jlcpcb-files-${{ github.sha }}
+        name: ${{ github.event.repository.name }}-jlcpcb-files-${{ github.head.ref }}-${{ github.sha }}
         path: output/jlcpcb_gerber_and_drill
 
 
