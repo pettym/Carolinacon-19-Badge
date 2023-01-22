@@ -5,16 +5,15 @@ name: "KiBot Build"
 on:
   push:
     paths:
-      - 'cc-19-badge/*.kicad_sch'
-      - 'cc-19-badge/*.kicad_pcb'
-      - 'cc-19-badge/*.kibot.yaml'
-      - '.github/workflows/kibot.yml'
+      - '*.kicad_sch'
+      - '*.kicad_pcb'
       - '*.kibot.yaml'
+      - '.github/workflows/kibot.yml'
   pull_request:
     paths:
-      - 'cc-19-badge/*.kicad_sch'
-      - 'cc-19-badge/*.kicad_pcb'
-      - 'cc-19-badge/*.kibot.yaml'
+      - '*.kicad_sch'
+      - '*.kicad_pcb'
+      - '*.kibot.yaml'
       - '.github/workflows/kibot.yml'
   repository_dispatch:
     types: [run_qs]
@@ -33,7 +32,7 @@ jobs:
 
     - name: KiBot
       run: |
-        kibot -c "cc-19-badge/config.kibot.yaml" -e "cc-19-badge/*.kicad_sch" -b "cc-19-badge/*.kicad_pcb"
+        kibot
     - name: Artifacts
       uses: actions/upload-artifact@v2
       with:
