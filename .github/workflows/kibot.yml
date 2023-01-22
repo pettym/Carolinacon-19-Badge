@@ -46,11 +46,9 @@ jobs:
     # - name: BOM Artifacts
     #   uses: actions/upload-artifact@v2
     #   with:
-    #     name: ${{ github.event.repository.name }}-BOM-${{ github.sha }}
+    #     name: ${{ github.event.repository.name }}-BOM-${{ github.sha }}-${{ github.ref_name }}
     #     path: output/bom
 
-    - name: test
-      run: echo "${{ env.RELEASE_VERSION }}"; echo "${{github.ref_name}}"
 
     - name: Thumbnails
       if: ${{ github.event_name != 'push' }}
@@ -58,9 +56,9 @@ jobs:
         mkdir -p thumbnails
         rm -f thumbnails/* || true        
         cp output/thumbnails/* thumbnails/.
-        # git config user.name github-actions
-        # git config user.email github-actions@github.com
-        # git add thumbnails/.
-        # git commit -m "Update Thumbnails"
-        # git push
+        git config user.name github-actions
+        git config user.email github-actions@github.com
+        git add thumbnails/.
+        git commit -m "Update Thumbnails"
+        git push
 
