@@ -42,27 +42,6 @@ jobs:
     #     path: output/bom
 
 
-
-on:
-  push:
-    paths:
-      - '*.kicad_sch'
-      - '*.kicad_pcb'
-      - '*.kibot.yaml'
-      - '.github/workflows/kibot.yml'
-  repository_dispatch:
-    types: [run_qs]
-
-
-jobs:
-  KiBot:
-    runs-on: ubuntu-latest
-    container: ghcr.io/inti-cmnb/kicad6_auto_full:latest
-
-    - name: KiBot
-      run: |
-        kibot
-
     - name: Thumbnails
       run: |
         mkdir -p thumbnails
