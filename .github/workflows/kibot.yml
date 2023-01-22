@@ -33,7 +33,7 @@ jobs:
 
     - name: KiBot
       run: |
-        kibot
+        kibot -c "cc-19-badge/config.kibot.yaml"
     - name: Artifacts
       uses: actions/upload-artifact@v2
       with:
