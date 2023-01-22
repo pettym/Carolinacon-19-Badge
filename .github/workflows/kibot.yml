@@ -63,3 +63,49 @@ jobs:
     #     git commit -m "thumbnails"
     #     git push
 
+
+
+name: "Thumbnail Build"
+
+on:
+  pull_request:
+    paths:
+      - '*.kicad_sch'
+      - '*.kicad_pcb'
+      - '*.kibot.yaml'
+      - '.github/workflows/kibot.yml'
+  repository_dispatch:
+    types: [run_qs]
+
+jobs:
+  KiBot:
+    runs-on: ubuntu-latest
+    container: ghcr.io/inti-cmnb/kicad6_auto_full:latest
+
+
+    steps:
+    - uses: actions/checkout@v3
+      with:
+        fetch-depth: '0'
+
+
+    - name: KiBot
+      run: |
+        kibot
+
+
+    - run: |
+        mkdir thumbnails
+        
+        # First remove any existing thumbnails
+        # This way there will never be "out-of-date" thumbnails, if new ones aren't generated
+        # It is annoying to have to git pull after every push
+        # I am considering only generating the previews on MR/tagged/release/etc
+        rm -f thumbnails/* || true
+        
+        cp output/thumbnails/* thumbnails/.
+        git config user.name github-actions
+        git config user.email github-actions@github.com
+        git add thumbnails/.
+        git commit -m "thumbnails"
+        git push
