@@ -13,4 +13,4 @@ We would like to thank SamacSys for providing footprint files for providing the 
 
  - `OS102011MA1QN1`
 
-In all seriousness, I do appreciate that SamacSys has opened up their part library for amateurs, hobbyists, and scrubs like me.
+Carolinacon appreciates that SamacSys has opened up their part library for amateurs, hobbyists, and scrubs like us.
