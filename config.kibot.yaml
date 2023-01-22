@@ -24,7 +24,7 @@ outputs:
   ##########################
 
   - name: 'gerbers'
-    comment: "Gerbers for the board house"
+    comment: "Gerbers Files"
     type: gerber
     dir: output/gerber_and_drill
     options:
@@ -49,8 +49,8 @@ outputs:
 
     layers: 'all'
 
-  - name: 'Drills for the board house'
-    comment: ""
+  - name: 'drills'
+    comment: "Drill Files"
     type: gerb_drill
     dir: output/gerber_and_drill
     
