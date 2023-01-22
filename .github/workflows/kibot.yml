@@ -43,7 +43,7 @@ jobs:
         # This way there will never be "out-of-date" thumbnails, if new ones aren't generated
         # It is annoying to have to git pull after every push
         # I am considering only generating the previews on MR/tagged/release/etc
-        rm thumbnails/*
+        rm -f thumbnails/*
         
         cp output/thumbnails/* thumbnails/.
         git config user.name github-actions
