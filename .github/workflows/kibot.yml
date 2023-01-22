@@ -51,7 +51,6 @@ jobs:
 
 
     - name: Thumbnails
-      #if: ${{ github.event.name != 'push' }}
       run: |
         mkdir -p thumbnails
         rm -f thumbnails/* || true        
