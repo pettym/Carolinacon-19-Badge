@@ -63,6 +63,6 @@ outputs:
   - name: 'Previews'
     comment: "preview_render"
     type: pcbdraw
-    dir: output/preview_render
+    dir: output/thumbnails
     options:
       format: png
