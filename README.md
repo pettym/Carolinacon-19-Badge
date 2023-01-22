@@ -13,4 +13,8 @@ We would like to thank SamacSys for providing footprint files for providing the 
 
  - `OS102011MA1QN1`
 
-Carolinacon appreciates that SamacSys has opened up their part library for amateurs, hobbyists, and scrubs like us.
+Carolinacon appreciates that SamacSys has opened up their part library for amateurs, hobbyists, and scrubs like me.
+
+# Misc Legal Disclaimers
+
+This badge, and all source code, was generated entirely by ChatGPT.
