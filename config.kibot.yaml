@@ -24,7 +24,7 @@ outputs:
   - name: 'gerbers'
     comment: "Gerbers for the board house"
     type: gerber
-    dir: output/gerber
+    dir: output/gerber_and_drill
     options:
       # generic layer options
       exclude_edge_layer: false
