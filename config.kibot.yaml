@@ -18,7 +18,6 @@ preflight:
 
 
 outputs:
-  
   ##########################
   # Gerber File Generation #
   ##########################
@@ -84,6 +83,7 @@ outputs:
   #   type: kibom
   #   dir: output/bom
 
+
   #####################
   # Generate Previews #
   #####################
@@ -94,3 +94,11 @@ outputs:
     dir: output/thumbnails
     options:
       format: png
+
+  - name: '3d Render'
+    type: render_3d
+    dir: output/thumbnails
+    options:
+      auto_crop: true
+      rotate_x: 5
+      ray_tracing: false
