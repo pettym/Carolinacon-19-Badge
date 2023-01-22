@@ -16,7 +16,8 @@ on:
   repository_dispatch:
     types: [run_qs]
 
-
+env:
+  TEST: ${{ 
 
 jobs:
   KiBot:
@@ -50,7 +51,7 @@ jobs:
 
 
     - name: Thumbnails
-      if: ${{ github.event.name != 'push' }}
+      if: ${{ github.event.name == 'pull_request' }}
       run: |
         mkdir -p thumbnails
         rm -f thumbnails/* || true        
