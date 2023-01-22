@@ -41,10 +41,11 @@ jobs:
         path: output
 
     - run: |
-          cp output/preview_render/* previews/.
-          git config user.name github-actions
-          git config user.email github-actions@github.com
-          git add previews
-          git commit -m "generated"
-          git push
+        mkdir previews
+        cp output/preview_render/* previews/.
+        git config user.name github-actions
+        git config user.email github-actions@github.com
+        git add previews
+        git commit -m "generated"
+        git push
 
