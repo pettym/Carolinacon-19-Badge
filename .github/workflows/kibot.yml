@@ -36,19 +36,25 @@ jobs:
         name: ${{ github.event.repository.name }}-gerber-and-drill-files-${{ github.sha }}
         path: output/gerber_and_drill
 
-    - run: |
-        mkdir thumbnails
+    - name: BOM Artifacts
+      uses: actions/upload-artifact@v2
+      with:
+        name: ${{ github.event.repository.name }}-BOM-${{ github.sha }}
+        path: output/bom
+
+    # - run: |
+    #     mkdir thumbnails
         
-        # First remove any existing thumbnails
-        # This way there will never be "out-of-date" thumbnails, if new ones aren't generated
-        # It is annoying to have to git pull after every push
-        # I am considering only generating the previews on MR/tagged/release/etc
-        rm -f thumbnails/*
+    #     # First remove any existing thumbnails
+    #     # This way there will never be "out-of-date" thumbnails, if new ones aren't generated
+    #     # It is annoying to have to git pull after every push
+    #     # I am considering only generating the previews on MR/tagged/release/etc
+    #     rm -f thumbnails/*
         
-        cp output/thumbnails/* thumbnails/.
-        git config user.name github-actions
-        git config user.email github-actions@github.com
-        git add thumbnails/.
-        git commit -m "thumbnails"
-        git push
+    #     cp output/thumbnails/* thumbnails/.
+    #     git config user.name github-actions
+    #     git config user.email github-actions@github.com
+    #     git add thumbnails/.
+    #     git commit -m "thumbnails"
+    #     git push
 
