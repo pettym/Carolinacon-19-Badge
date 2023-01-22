@@ -24,6 +24,11 @@ jobs:
   KiBot:
     runs-on: ubuntu-latest
     container: ghcr.io/inti-cmnb/kicad6_auto_full:latest
+    with:
+      config: config.kibot.yaml
+      schema: *.kicad_sch
+      board: *.kicad_pcb
+      dir: output
 
     steps:
     - uses: actions/checkout@v3
@@ -31,9 +36,6 @@ jobs:
         # So we can run a diff between last 2 changes
         fetch-depth: '0'
 
-    - name: KiBot
-      run: |
-        kibot -c "cc-19-badge/config.kibot.yaml"
     - name: Artifacts
       uses: actions/upload-artifact@v2
       with:
