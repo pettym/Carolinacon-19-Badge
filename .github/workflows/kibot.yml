@@ -16,8 +16,6 @@ on:
   repository_dispatch:
     types: [run_qs]
 
-env:
-  TEST: ${{ 
 
 jobs:
   KiBot:
