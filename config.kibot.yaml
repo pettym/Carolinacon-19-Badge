@@ -9,7 +9,7 @@ kibot:
 #   check_zone_fills: true
 #   ignore_unconnected: false
 
- preflight:
+preflight:
    run_erc: false
    update_xml: true
    run_drc: false
