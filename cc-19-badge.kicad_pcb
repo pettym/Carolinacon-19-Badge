@@ -208,7 +208,7 @@
 
   (footprint "third-party-schematics:SOIC127P600X175-8N" (layer "F.Cu")
     (tedit 0) (tstamp 7871015d-e7af-49e6-b5fa-9268670b6b97)
-    (at 110.862 84.43)
+    (at 119.126 97.917)
     (descr "SO8")
     (tags "Integrated Circuit")
     (property "Description" "Dynamic NFC/RFID tag IC with 4-Kbit EEPROM, and fast transfer mode capability")

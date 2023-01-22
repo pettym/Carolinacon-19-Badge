@@ -94,3 +94,9 @@ outputs:
     dir: output/thumbnails
     options:
       format: png
+
+  - name: '3d Render'
+    type: render_3d
+    dir: output/thumbnails
+    options:
+      ray_tracing: false
