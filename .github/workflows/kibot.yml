@@ -37,7 +37,7 @@ jobs:
     - name: Gerber Files
       uses: actions/upload-artifact@v2
       with:
-        name: gerber-${{ github.ref }}-${{ github.sha }}
+        name: gerber-${{ github.ref.name }}-${{ github.sha }}
         path: output/gerber
 
     # - run: |
