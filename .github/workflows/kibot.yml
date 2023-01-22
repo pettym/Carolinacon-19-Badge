@@ -32,7 +32,7 @@ jobs:
         fetch-depth: '0'
 
     - name: KiBot
-    - uses: INTI-CMNB/KiBot@v2
+      uses: INTI-CMNB/KiBot@v2
       with:
         config: config.kibot.yaml
         dir: output
