@@ -40,12 +40,12 @@ jobs:
         name: kibot_output
         path: output
 
-    - run: |
-        mkdir thumbnails
-        cp output/thumbnails/* thumbnails/.
-        git config user.name github-actions
-        git config user.email github-actions@github.com
-        git add thumbnails/.
-        git commit -m "thumbnails"
-        git push
+    # - run: |
+    #     mkdir thumbnails
+    #     cp output/thumbnails/* thumbnails/.
+    #     git config user.name github-actions
+    #     git config user.email github-actions@github.com
+    #     git add thumbnails/.
+    #     git commit -m "thumbnails"
+    #     git push
 
