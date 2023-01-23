@@ -1,3 +1,18 @@
+# Versions / Tagging
+ 1) prototype
+  * `proto-0.1`
+  * `proto-0.2`
+  * etc
+ 2) dev
+  * `dev-0.1`
+  * `dev-0.2`
+  * etc
+ 3) release
+  * `release-standard`
+  * `release-speaker`
+  * `release-uber`
+  
+
 # Carolinacon Face Reveal:
 
 ![The-Faces-Of-Carolinacon](./source_images/red.png)
