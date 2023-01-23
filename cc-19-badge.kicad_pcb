@@ -95,7 +95,7 @@
 
   (footprint "third-party-schematics:K104K15X7RF5TH5" (layer "F.Cu")
     (tedit 0) (tstamp 18fdd2e9-cc33-4b96-995e-357b122ff47e)
-    (at 123.5964 92.7716 90)
+    (at 123.7488 92.7208 90)
     (descr "K104K15X7RF5TH5-1")
     (tags "Capacitor")
     (property "Description" "Vishay K104K15X7RF5TH5 100nF Multilayer Ceramic Capacitor MLCC 50V dc +/-10% Tolerance Through Hole")
