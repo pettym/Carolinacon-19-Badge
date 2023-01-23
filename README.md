@@ -1,12 +1,8 @@
 # Versions / Tagging
  1) prototype
-  * `proto-0.1`
-  * `proto-0.2`
-  * etc
+  * Various early prototypes leading up to final design
  2) dev
-  * `dev-0.1`
-  * `dev-0.2`
-  * etc
+  * Test run of final badges, for last minute changes
  3) release
   * `release-standard`
   * `release-speaker`
