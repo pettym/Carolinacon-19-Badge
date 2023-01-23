@@ -14,7 +14,7 @@ preflight:
    update_xml: true
    run_drc: false
    check_zone_fills: true
-   ignore_unconnected: true
+   ignore_unconnected: false
 
 
 outputs:
