@@ -88,12 +88,12 @@ outputs:
   # Generate Previews #
   #####################
 
-  - name: 'Previews'
-    comment: "preview_render"
-    type: pcbdraw
-    dir: output/thumbnails
-    options:
-      format: png
+  # - name: 'Previews'
+  #   comment: "preview_render"
+  #   type: pcbdraw
+  #   dir: output/thumbnails
+  #   options:
+  #     format: png
 
   # - name: '3d Render'
   #   type: render_3d
