@@ -1,4 +1,4 @@
-20590218156216062
+20598590326978398
 Audio_Module
 Reverb_BTDR-1H
 Digital Reverberation Unit, http://www.belton.co.kr/inc/downfile.php?seq=17&file=pdf (footprint from http://www.uk-electronic.de/PDF/BTDR-1.pdf)
@@ -61662,6 +61662,27 @@ DIL DIP PDIP 2.54mm 7.62mm 300mil
 0
 4
 4
+PCB_ANT
+gge348
+
+
+0
+3
+3
+PCB_ANT
+gge402
+
+
+0
+2
+2
+PCB_ANT
+gge405
+
+
+0
+2
+2
 Package_BGA
 Analog_BGA-28_4.0x6.25mm_Layout4x7_P0.8mm_Ball0.45mm_Pad0.4
 Analog BGA-28 4.0mm x 6.25mm package, pitch 0.4mm pad, based on https://www.analog.com/media/en/technical-documentation/data-sheets/8063fa.pdf
@@ -86443,9 +86464,23 @@ Capacitor Polarised
 2
 2
 third-party-schematics
+CFR-Resistor
+CFR-12 3.4mm length
+Resistor
+0
+2
+2
+third-party-schematics
 K104K15X7RF5TH5
 K104K15X7RF5TH5-1
 Capacitor
+0
+2
+2
+third-party-schematics
+LTL4232
+LTL-4232-2
+LED
 0
 2
 2
