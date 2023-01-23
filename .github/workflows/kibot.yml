@@ -42,14 +42,14 @@ jobs:
     #     path: output/bom
 
 
-    # - name: Thumbnails
-    #   run: |
-    #     mkdir -p thumbnails
-    #     rm -f thumbnails/* || true
-    #     cp output/thumbnails/* thumbnails/. || true
-    #     git config user.name github-actions
-    #     git config user.email github-actions@github.com
-    #     git add thumbnails/.
-    #     git commit -m "Update Thumbnails"
-    #     git push
+    - name: Thumbnails
+      run: |
+        mkdir -p thumbnails
+        rm -f thumbnails/* || true
+        cp output/thumbnails/* thumbnails/. || true
+        git config user.name github-actions
+        git config user.email github-actions@github.com
+        git add thumbnails/.
+        git commit -m "Update Thumbnails"
+        git push
 
