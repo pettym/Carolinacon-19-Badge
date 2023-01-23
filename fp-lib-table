@@ -1,3 +1,4 @@
 (fp_lib_table
   (lib (name "third-party-schematics")(type "KiCad")(uri "${KIPRJMOD}/third-party-schematics")(options "")(descr ""))
+  (lib (name "PCB_ANT")(type "KiCad")(uri "${KIPRJMOD}/third-party-schematics/PCB_ANT.pretty")(options "")(descr ""))
 )
