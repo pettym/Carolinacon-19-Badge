@@ -1005,7 +1005,7 @@
   (symbol (lib_id "Device:R_Small") (at 83.82 116.84 0) (unit 1)
     (in_bom yes) (on_board yes) (fields_autoplaced)
     (uuid 0bd8c339-0c20-445e-98a9-ecc177cc64fc)
-    (property "Reference" "R4" (id 0) (at 85.3186 116.0053 0)
+    (property "Reference" "R3" (id 0) (at 85.3186 116.0053 0)
       (effects (font (size 1.27 1.27)) (justify left))
     )
     (property "Value" "470Ω" (id 1) (at 85.3186 118.5422 0)
@@ -1290,7 +1290,7 @@
   (symbol (lib_id "Device:R_Small") (at 72.39 116.84 0) (unit 1)
     (in_bom yes) (on_board yes) (fields_autoplaced)
     (uuid c336cf47-f188-46e2-984d-5149441cfce2)
-    (property "Reference" "R3" (id 0) (at 73.8886 116.0053 0)
+    (property "Reference" "R4" (id 0) (at 73.8886 116.0053 0)
       (effects (font (size 1.27 1.27)) (justify left))
     )
     (property "Value" "470Ω" (id 1) (at 73.8886 118.5422 0)
@@ -1538,10 +1538,10 @@
     (path "/0a14c8da-8850-4158-a063-acfba3ff4bac"
       (reference "R2") (unit 1) (value "R_Small") (footprint "third-party-schematics:CFR-Resistor")
     )
-    (path "/c336cf47-f188-46e2-984d-5149441cfce2"
+    (path "/0bd8c339-0c20-445e-98a9-ecc177cc64fc"
       (reference "R3") (unit 1) (value "470Ω") (footprint "third-party-schematics:CFR-Resistor")
     )
-    (path "/0bd8c339-0c20-445e-98a9-ecc177cc64fc"
+    (path "/c336cf47-f188-46e2-984d-5149441cfce2"
       (reference "R4") (unit 1) (value "470Ω") (footprint "third-party-schematics:CFR-Resistor")
     )
     (path "/040f8082-76ef-4eb1-ac5d-3018b40eb874"
