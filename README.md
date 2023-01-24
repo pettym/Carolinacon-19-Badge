@@ -5,7 +5,7 @@
 # Versions / Tagging
  1) `dev`  - prototypes development
  
- 2) `test` - Intended to be final design
+ 2) `test` - Test batch of what is intended to be final release
  
  3) `release`
   * `release-standard`
