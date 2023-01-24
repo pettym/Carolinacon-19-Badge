@@ -23,6 +23,7 @@ jobs:
       run: |
         kibot
 
+
     - name: Thumbnails
       run: |
         mkdir -p thumbnails
