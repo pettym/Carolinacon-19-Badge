@@ -949,7 +949,7 @@
   (symbol (lib_id "LTL-4232:LTL-4232") (at 83.82 134.62 90) (unit 1)
     (in_bom yes) (on_board yes)
     (uuid 0463502d-a9a1-4832-815a-047e0db3769d)
-    (property "Reference" "LED2" (id 0) (at 85.09 123.19 90)
+    (property "Reference" "PB3" (id 0) (at 85.09 123.19 90)
       (effects (font (size 1.27 1.27)) (justify right))
     )
     (property "Value" "LTL-4232" (id 1) (at 87.63 124.46 0)
@@ -1397,7 +1397,7 @@
   (symbol (lib_id "LTL-4232:LTL-4232") (at 72.39 134.62 90) (unit 1)
     (in_bom yes) (on_board yes)
     (uuid e86446a6-cc2d-48c6-ad3a-8f239c890a85)
-    (property "Reference" "LED1" (id 0) (at 73.66 123.19 90)
+    (property "Reference" "PB4" (id 0) (at 73.66 123.19 90)
       (effects (font (size 1.27 1.27)) (justify right))
     )
     (property "Value" "LTL-4232" (id 1) (at 76.2 124.46 0)
@@ -1526,11 +1526,11 @@
     (path "/135628d0-6cb8-4c6c-924d-86dab98dd808"
       (reference "J1") (unit 1) (value "Conn_01x06") (footprint "Connector_PinHeader_2.54mm:PinHeader_1x06_P2.54mm_Vertical")
     )
-    (path "/e86446a6-cc2d-48c6-ad3a-8f239c890a85"
-      (reference "LED1") (unit 1) (value "LTL-4232") (footprint "third-party-schematics:LTL4232")
-    )
     (path "/0463502d-a9a1-4832-815a-047e0db3769d"
-      (reference "LED2") (unit 1) (value "LTL-4232") (footprint "third-party-schematics:LTL4232")
+      (reference "PB3") (unit 1) (value "LTL-4232") (footprint "third-party-schematics:LTL4232")
+    )
+    (path "/e86446a6-cc2d-48c6-ad3a-8f239c890a85"
+      (reference "PB4") (unit 1) (value "LTL-4232") (footprint "third-party-schematics:LTL4232")
     )
     (path "/50baf138-11e8-4f62-87e9-bb4f61d31018"
       (reference "R1") (unit 1) (value "R_Small") (footprint "third-party-schematics:CFR-Resistor")
