@@ -45,7 +45,6 @@ jobs:
       with:
         args: zip --junk-paths -r ${{ env.GERBERS_JLCPCB }}.zip output/thumbnails
 
-
     - name: Release Gerbers
       uses: svenstaro/upload-release-action@v2
       env:
