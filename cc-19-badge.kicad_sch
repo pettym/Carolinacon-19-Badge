@@ -1232,7 +1232,7 @@
   (symbol (lib_id "MCU_Microchip_ATtiny:ATtiny85-20P") (at 46.99 101.6 0) (unit 1)
     (in_bom yes) (on_board yes) (fields_autoplaced)
     (uuid c10ac4f6-917f-47a9-a462-47dfdc656058)
-    (property "Reference" "U?" (id 0) (at 33.528 100.7653 0)
+    (property "Reference" "U1" (id 0) (at 33.528 100.7653 0)
       (effects (font (size 1.27 1.27)) (justify right))
     )
     (property "Value" "ATtiny85-20P" (id 1) (at 33.528 103.3022 0)
@@ -1515,7 +1515,7 @@
       (reference "S1") (unit 1) (value "OS102011MA1QN1") (footprint "third-party-schematics:OS102011MA1QN1")
     )
     (path "/c10ac4f6-917f-47a9-a462-47dfdc656058"
-      (reference "U?") (unit 1) (value "ATtiny85-20P") (footprint "Package_DIP:DIP-8_W7.62mm")
+      (reference "U1") (unit 1) (value "ATtiny85-20P") (footprint "Package_DIP:DIP-8_W7.62mm")
     )
   )
 )
