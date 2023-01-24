@@ -3,11 +3,11 @@
 ![Preview](./thumbnails/cc-19-badge-top.png)
 
 # Versions / Tagging
- 1) prototype
-  * Various early prototypes leading up to final design
- 2) dev
-  * Test run of final badges, for last minute changes
- 3) release
+ 1) `dev`  - prototypes development
+ 
+ 2) `test` - Intended to be final design
+ 
+ 3) `release`
   * `release-standard`
   * `release-speaker`
   * `release-uber`
