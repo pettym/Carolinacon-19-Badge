@@ -813,7 +813,7 @@
   (gr_line (start 111.76 128.27) (end 126.492 128.27) (layer "Edge.Cuts") (width 0.1) (tstamp d8818fd3-16f3-43d9-9375-07c9f566f364))
   (gr_line (start 90.043 134.112) (end 95.885 139.954) (layer "Edge.Cuts") (width 0.1) (tstamp e2d6f3e0-8deb-401c-8117-31fbe0c7580d))
   (gr_line (start 90.043 52.578) (end 90.043 134.112) (layer "Edge.Cuts") (width 0.1) (tstamp f93bae4b-ddab-4154-b3bf-f6eed6cd910e))
-  (gr_text "Development Board v0.1" (at 116.6368 55.6006) (layer "F.SilkS") (tstamp 5e356c75-7a6d-433e-acc9-92a008e7fbb4)
+  (gr_text "Development Board" (at 116.6368 55.6006) (layer "F.SilkS") (tstamp 5e356c75-7a6d-433e-acc9-92a008e7fbb4)
     (effects (font (size 2 2) (thickness 0.15)))
   )
 
