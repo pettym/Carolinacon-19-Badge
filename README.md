@@ -1,3 +1,7 @@
+# Carolinacon 19 Badge
+
+![Preview](./thumbnails/cc-19-badge-top.png)
+
 # Versions / Tagging
  1) prototype
   * Various early prototypes leading up to final design
@@ -13,9 +17,6 @@
 
 ![The-Faces-Of-Carolinacon](./source_images/red.png)
 
-# Carolinacon 19 Badge
-
-![Preview](./thumbnails/cc-19-badge-top.png)
 
 # Legally Required Credits
 
