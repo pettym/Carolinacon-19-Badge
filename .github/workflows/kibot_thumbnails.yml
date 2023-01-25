@@ -13,13 +13,12 @@ jobs:
     runs-on: ubuntu-latest
     container: ghcr.io/inti-cmnb/kicad6_auto_full:latest
 
-    - run: env
-
     steps:
     - uses: actions/checkout@v3
       with:
         fetch-depth: '0'
 
+    - run: env
       # Although it would make sense to have a paired down config file that only generates thumbnails:
       # I don't want mismatched configs to be a possibility. Monolithic config.kibot.yaml only!
     - name: KiBot
