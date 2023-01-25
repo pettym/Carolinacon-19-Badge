@@ -21,7 +21,7 @@ jobs:
 
     - name: KiBot
       run: |
-        kibot -d
+        kibot -d output
 
 
     - name: Thumbnails
