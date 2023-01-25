@@ -53,7 +53,7 @@ jobs:
         GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
       with:
         file: ${{ env.GERBERS_JLCPCB }}.zip
-        tag: ${{ github.ref }}
+        tag: ${{ github.ref_name }}
         overwrite: true
 
 
