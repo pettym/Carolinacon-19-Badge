@@ -1,14 +1,6 @@
 kibot:
   version: 1
 
-  
-# preflight:
-#   run_erc: false
-#   update_xml: true
-#   run_drc: true
-#   check_zone_fills: true
-#   ignore_unconnected: false
-
 preflight:
    run_erc: false
    update_xml: true
@@ -25,7 +17,7 @@ preflight:
 #        command: "echo ${GITHUB_SHA}"
        
      - name: version
-       command: echo "${VERSION:=${GITHUB_REF_NAME:=no_version}}"
+       command: echo "$GITHUB_REF | grep "refs/tags" | awk -F / '{ print $NF }'
        
      - name: date
        command: date +"%B %d, %Y"
