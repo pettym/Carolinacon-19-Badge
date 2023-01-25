@@ -798,6 +798,8 @@
     (effects (font (size 2 2) (thickness 0.15)))
   )
 
+  (segment (start 121.92 67.31) (end 117.475 71.755) (width 0.25) (layer "F.Cu") (net 0) (tstamp 324956bb-d67f-46fa-ae9a-8999ecb8f310))
+  (segment (start 121.92 66.04) (end 121.92 67.31) (width 0.25) (layer "F.Cu") (net 0) (tstamp c8e4ce8e-ca16-4580-9364-33ad49876ee2))
   (via (at 93.345 112.395) (size 5) (drill 4) (layers "F.Cu" "B.Cu") (free) (net 1) (tstamp 474b5e2b-3a13-4870-8d6b-8721788629f0))
   (segment (start 119.1094 114.768) (end 118.999 114.8784) (width 0.25) (layer "F.Cu") (net 2) (tstamp 085e00d6-d6fc-4998-adc2-94f1570e89d5))
   (segment (start 118.999 114.8784) (end 121.2684 114.8784) (width 0.5) (layer "F.Cu") (net 2) (tstamp 1a5dc153-0cb5-4e57-a135-d241766c2105))
