@@ -17,12 +17,18 @@ preflight:
    ignore_unconnected: false
    
    set_text_variables:
+     - name: repo
+       command: echo "${GITHUB_REPOSITORY}" | awk -F / '{ print $NF }'
+
+    - name: sha
+       command: "echo ${GITHUB_SHA}"
+       
      - name: version
-       command: echo "\"${VERSION:=${GITHUB_REF:=no_version}}\""
+       command: echo "\"$GITHUB_REF_NAME\""
+       
      - name: date
        command: 'date +"%Y-%m-%d"'
-     - name: sha
-       command: "echo ${GITHUB_SHA}"
+       
 
      
 outputs:
