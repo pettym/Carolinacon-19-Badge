@@ -20,6 +20,8 @@ jobs:
 
 
     - name: KiBot
+      env:
+        version: ${{github.ref_name}}
       run: |
         kibot -d output
 
