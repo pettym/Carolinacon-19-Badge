@@ -24,7 +24,7 @@ preflight:
        command: "echo ${GITHUB_SHA}"
        
      - name: version
-       command: echo "\"${VERSION:=${GITHUB_REF_NAME:=no_version}}\""
+       command: echo "${VERSION:=${GITHUB_REF_NAME:=no_version}}"
        
      - name: date
        command: 'date +"%Y-%m-%d"'
