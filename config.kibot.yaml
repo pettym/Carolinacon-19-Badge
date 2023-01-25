@@ -1,7 +1,7 @@
 kibot:
   version: 1
 
-
+  
 # preflight:
 #   run_erc: false
 #   update_xml: true
@@ -15,8 +15,16 @@ preflight:
    run_drc: false
    check_zone_fills: true
    ignore_unconnected: false
+   
+   set_text_variables:
+     name: version
+     command: "echo ${VERSION:=Version}"
 
+   set_text_variables:
+     name: date
+     command: 'date +"%Y-%m-%d"'
 
+     
 outputs:
   ##########################
   # Gerber File Generation #
@@ -25,7 +33,7 @@ outputs:
   - name: JLCPCB_gerbers
     comment: Gerbers compatible with JLCPCB
     type: gerber
-    dir: output/jlcpcb_gerber_and_drill
+    dir: jlcpcb_gerber_and_drill
     options: &gerber_options
       exclude_edge_layer: true
       exclude_pads_from_silkscreen: true
@@ -63,7 +71,7 @@ outputs:
   - name: JLCPCB_drill
     comment: Drill files compatible with JLCPCB
     type: excellon
-    dir: output/jlcpcb_gerber_and_drill
+    dir: jlcpcb_gerber_and_drill
     options:
       pth_and_npth_single_file: false
       pth_id: '-PTH'
@@ -78,10 +86,10 @@ outputs:
   # Generate BOM #
   ################
     
-  # - name: 'kicad-bom'
-  #   comment: "KiCad Bom"
-  #   type: kibom
-  #   dir: output/bom
+  - name: 'kicad-bom'
+    comment: "KiCad Bom"
+    type: kibom
+    dir: bom
 
 
   #####################
@@ -91,13 +99,13 @@ outputs:
   - name: 'Previews'
     comment: "preview_render"
     type: pcbdraw
-    dir: output/thumbnails
+    dir: thumbnails
     options:
       format: png
 
   # - name: '3d Render'
   #   type: render_3d
-  #   dir: output/thumbnails
+  #   dir: thumbnails
   #   options:
   #     auto_crop: true
   #     rotate_x: 1

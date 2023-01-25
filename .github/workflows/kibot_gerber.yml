@@ -24,7 +24,7 @@ jobs:
 
     - name: KiBot
       run: |
-        kibot
+        kibot -d output
 
 
     - name: JLCPCB Artifacts
