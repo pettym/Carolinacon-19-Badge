@@ -18,9 +18,11 @@ preflight:
    
    set_text_variables:
      - name: version
-       command: "echo ${version:=no_version}"
+       command: echo "\"${VERSION:=${GITHUB_REF:=no_version}}\""
      - name: date
        command: 'date +"%Y-%m-%d"'
+     - name: sha
+       command: "echo ${GITHUB_SHA}"
 
      
 outputs:

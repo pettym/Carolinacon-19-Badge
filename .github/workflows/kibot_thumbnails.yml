@@ -24,8 +24,6 @@ jobs:
       # Although it would make sense to have a paired down config file that only generates thumbnails:
       # I don't want mismatched configs to be a possibility. Monolithic config.kibot.yaml only!
     - name: KiBot
-      env:
-        version: ${{github.ref_name}}
       run: |
         kibot -d output
 
