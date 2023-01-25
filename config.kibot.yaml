@@ -116,4 +116,5 @@ outputs:
   #   options:
   #     auto_crop: true
   #     rotate_x: 1
+  #     rotate_y: 1
   #     ray_tracing: false
