@@ -4,7 +4,6 @@ on:
   push:
     paths:
       - '*.kicad*'
-      - '*'
   repository_dispatch:
     types: [run_qs]
 
