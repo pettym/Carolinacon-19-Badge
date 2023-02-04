@@ -7,7 +7,7 @@ import pcbnew
 import matplotlib.pyplot as plt
 
 from math import sin, cos, dist, tau
-from numpy import pi, linspace, arange
+from numpy import pi, concatenate, linspace, arange
 from scipy.signal import decimate, lfilter, iirfilter, butter, freqz
 
 
@@ -59,7 +59,6 @@ class SimplePlugin(pcbnew.ActionPlugin):
         self.category = "testing"
         self.description = "testing plugins"
         self.show_toolbar_button = False
-##        self.icon_file_name = 
 
     @staticmethod
     def draw(track, board):
@@ -79,39 +78,40 @@ class SimplePlugin(pcbnew.ActionPlugin):
         board.Add(track)
 
 
-    #graph_space = arange(0, 20, 0.01)
-    graph_space = linspace(0, 4*tau, 200) 
-    mult = 3
-
-    filter_data = False
-    decimation = 4
-    minimum_step = 6
     
-
     def Run(self):
-        print("Running")
-        board = pcbnew.GetBoard()
+       
+        graph_space = concatenate((
+            # First turn should be at lower resolution, to avoid noisy lines
+            linspace(0, tau, 10),
+            # Add additional "point" space to create the rest of the spiral
+            linspace(tau, 4*tau, 50*4),
+            ))
 
-        graph_space = self.graph_space
-        mult = self.mult
+        # inter-spiral seperation is a function of 'mult'
+        mult = 3
 
-        points_in_spiral = spiral(graph_space,
-                                  mult = mult,
-                                  filter_data = self.filter_data,
-                                  decimation = self.decimation,
-                                  minimum_step = self.minimum_step,
-                                  )
+        # Bool: apply iir filter (testing, may not be useful what-so-ever)
+        filter_data = False
+        
+        # Decimate x-y pairs by this factor
+        decimation = 0
+
+        # Remove samples with less euclidian distance than this value ("adapative" decimation? lol)
+        minimum_step = 0
+
+
+        points_in_spiral = spiral(
+            graph_space,
+            mult = mult,
+            filter_data = filter_data,
+            decimation = decimation,
+            minimum_step = minimum_step,
+        )
         print(f'{len(points_in_spiral)=}')
         
-        turns = 0
-        for start, stop in points_in_spiral:
-            
+        for start, stop in points_in_spiral:            
             self.make_track(point(*start), point(*stop), width_mm=0.2)
-
-            start_x, stop_x = start[0], stop[0]
-            if start_x < 0 and stop_x > 0:
-                turns += 1
-        print(f'{turns=}')
 
                        
 
@@ -122,9 +122,6 @@ if __name__ == '__main__':
 
     board = pcbnew.GetBoard()
     track = pcbnew.PCB_TRACK(board)
-
-    data = [ calc_spiral_point(i) for i in SimplePlugin.graph_space ]
-    x,y = zip(*data)
 
     x = list(range(1000))
     y = [ int(i>500) for i in x ]
