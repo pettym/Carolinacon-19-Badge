@@ -80,16 +80,18 @@ class SimplePlugin(pcbnew.ActionPlugin):
 
     
     def Run(self):
+
+        turn_count = 16
        
         graph_space = concatenate((
             # First turn should be at lower resolution, to avoid noisy lines
             linspace(0, tau, 10),
             # Add additional "point" space to create the rest of the spiral
-            linspace(tau, 4*tau, 50*4),
+            linspace(tau, turn_count*tau, turn_count*1000),
             ))
 
         # inter-spiral seperation is a function of 'mult'
-        mult = 3
+        mult = 3.15
 
         # Bool: apply iir filter (testing, may not be useful what-so-ever)
         filter_data = False
@@ -98,7 +100,7 @@ class SimplePlugin(pcbnew.ActionPlugin):
         decimation = 0
 
         # Remove samples with less euclidian distance than this value ("adapative" decimation? lol)
-        minimum_step = 0
+        minimum_step = 4
 
 
         points_in_spiral = spiral(
