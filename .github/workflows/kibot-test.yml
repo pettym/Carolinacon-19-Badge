@@ -31,6 +31,9 @@ jobs:
 
 
     - name: Thumbnails
+      if: |
+        (! startsWith(github.ref, 'refs/heads/master')) &&
+        (! startsWith(github.ref, 'refs/heads/main'))
       run: |
         mkdir -p thumbnails
         rm -f thumbnails/* || true
