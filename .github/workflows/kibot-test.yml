@@ -28,15 +28,17 @@ jobs:
         kibot -d output -c .kibot/config.kibot.yaml
 
 
-    # - name: Thumbnails
-    #   run: |
-    #     mkdir -p thumbnails
-    #     rm -f thumbnails/* || true
-    #     cp output/thumbnails/* thumbnails/. || true
-    #     git config user.name github-actions
-    #     git config user.email github-actions@github.com
-    #     git add thumbnails/.
-    #     (git commit -m "Update Thumbnails" && git push) || true
+    - name: Thumbnails
+      if: |
+        (github.event_name == 'pull_request')
+      run: |
+        mkdir -p thumbnails
+        rm -f thumbnails/* || true
+        cp output/thumbnails/* thumbnails/. || true
+        git config user.name github-actions
+        git config user.email github-actions@github.com
+        git add thumbnails/.
+        (git commit -m "Update Thumbnails" && git push) || true
         
     - name: Thumbnail Artifacts
       uses: actions/upload-artifact@v3
