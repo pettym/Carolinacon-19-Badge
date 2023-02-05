@@ -23,9 +23,14 @@ jobs:
       # I don't want mismatched configs to be a possibility. Monolithic config.kibot.yaml only!
     - name: KiBot
       run: |
-        kibot -d output
+        kibot -d output -c .kibot/config.kibot.yaml
 
-
+    - name: Thumbnail Artifacts
+      uses: actions/upload-artifact@v3
+      with:
+        name: cc-19-badge-top.png
+        path: output/thumbnails/
+        
     - name: Thumbnails
       run: |
         mkdir -p thumbnails
