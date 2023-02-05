@@ -7,6 +7,9 @@ on:
       - '**/*.kibot.yaml'
     tags:
       - '*'
+    branch:
+      - '!main'
+      
 
 env:
   GERBERS_JLCPCB: jlcpcb-gerber-${{github.event.repository.name}}-${{github.sha}}-${{github.ref_name}}
