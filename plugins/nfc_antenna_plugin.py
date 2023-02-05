@@ -17,26 +17,20 @@ def point(x, y, scale=None):
     return _class(x,y)
 
 
-##def lowpass_filter(data, order=8, critical_freq=0.1):
-def lowpass_filter(data, order=8, critical_freq=0.007):
-    b, a = iirfilter(order, critical_freq, analog=False, btype='lowpass')
-    return lfilter(b, a, data)
-
 def calc_spiral_point(t, mult=1):
     x = (mult * t) * cos(t)
     y = (mult * t) * sin(t)
     return (x,y)
 
 
-def spiral(iterator, mult=1, filter_data=False, decimation=0, minimum_step=0):
+def spiral(iterator, mult=1, minimum_step=0, decimation=0):
     data = [ calc_spiral_point(i, mult) for i in iterator ]
 
-    if filter_data or decimation:
-        x, y = zip(*data)
-        
-        if filter_data:   x, y = lowpass_filter(x), lowpass_filter(y)
-        if decimation: x, y = decimate(x, int(decimation)), decimate(y, int(decimation))
+    # TODO: Low Pass filter here?
 
+    if decimation:
+        x, y = zip(*data)
+        x, y = decimate(x, int(decimation)), decimate(y, int(decimation))
         data = list(zip(x,y))
 
     if minimum_step:
@@ -53,71 +47,62 @@ def spiral(iterator, mult=1, filter_data=False, decimation=0, minimum_step=0):
     
 
 
-class SimplePlugin(pcbnew.ActionPlugin):
+class NFCAntennaPlugin(pcbnew.ActionPlugin):
     def defaults(self):
-        self.name = "hello world plugin"
-        self.category = "testing"
-        self.description = "testing plugins"
+        self.name = "NFC Antenna Plugin"
+        self.category = "NFC Antenna Plugin"
+        self.description = "NFC Antenna Plugin"
         self.show_toolbar_button = False
 
     @staticmethod
-    def draw(track, board):
-        track.SetLayer(pcbnew.F_Cu)
-        track.SetStart(pcbnew.wxPoint(0, 0))
-        track.SetEnd(pcbnew.wxPoint( int(5e6), int(5e6) ))
-        track.SetWidth( int(2e5) )
-        board.Add(track)
-
-    @staticmethod
-    def make_track(start_point, stop_point, width_mm=0.25):
+    def draw_track(start_point, stop_point, width_mm=0.25):
         board = pcbnew.GetBoard()
         track = pcbnew.PCB_TRACK(board)
+
+        #track.SetLayer(pcbnew.F_Cu)
+        
         track.SetStart(start_point)
         track.SetEnd(stop_point)
         track.SetWidth( int(width_mm * 10 ** 6) )
         board.Add(track)
-
-
     
-    def Run(self):
-
-        turn_count = 16
+    def generate_antenna(self, turn_count=7, mult=3, initial_turn=30, decimation=0, minimum_step=4, track_width=0.2):
        
-        graph_space = concatenate((
-            # First turn should be at lower resolution, to avoid noisy lines
-            linspace(0, tau, 10),
-            # Add additional "point" space to create the rest of the spiral
-            linspace(tau, turn_count*tau, turn_count*1000),
-            ))
+##        graph_space = concatenate((
+##            # First turn should be at lower resolution, to avoid noisy lines
+##            linspace(0, tau, 10),
+##            # Add additional "point" space to create the rest of the spiral
+##            linspace(tau, turn_count*tau, turn_count*1000),
+##            ))
 
-        # inter-spiral seperation is a function of 'mult'
-        mult = 3.15
-
-        # Bool: apply iir filter (testing, may not be useful what-so-ever)
-        filter_data = False
-        
-        # Decimate x-y pairs by this factor
-        decimation = 0
-
-        # Remove samples with less euclidian distance than this value ("adapative" decimation? lol)
-        minimum_step = 4
-
+        graph_space =  linspace(
+            initial_turn * tau,
+            (initial_turn+turn_count)*tau,
+            turn_count*2000
+            )
 
         points_in_spiral = spiral(
             graph_space,
             mult = mult,
-            filter_data = filter_data,
             decimation = decimation,
             minimum_step = minimum_step,
         )
+        
         print(f'{len(points_in_spiral)=}')
         
         for start, stop in points_in_spiral:            
-            self.make_track(point(*start), point(*stop), width_mm=0.2)
+            self.draw_track(point(*start), point(*stop), width_mm=track_width)
 
+
+    def Run(self):
+        self.generate_antenna(
+            mult=3,
+            decimation=0,
+##            minimum_step=6
+            )
                        
 
-SimplePlugin().register()
+NFCAntennaPlugin().register()
 
 
 if __name__ == '__main__':
