@@ -20,20 +20,19 @@ env:
 jobs:
   KiBot:
     runs-on: ubuntu-latest
-    container: ghcr.io/inti-cmnb/kicad6_auto_full:latest
-    
+    container: ghcr.io/inti-cmnb/kicad6_auto_full:latest    
     steps:
+
     - uses: actions/checkout@v3
       with:
         fetch-depth: '0'
 
     - run: |
         env
-        
+
     - name: KiBot
       run: |
         kibot -d output -c .kibot/config.kibot.yaml
-
 
 
     - name: Thumbnails
@@ -55,7 +54,7 @@ jobs:
       with:
         name: ${{ env.GERBERS_JLCPCB }}.zip
         path: output/gerber-files/jlcpcb-gerber.zip
-        
+
     - run: |
         mv output/gerber-files/jlcpcb-gerber.zip ${{ env.GERBERS_JLCPCB }}.zip
 
