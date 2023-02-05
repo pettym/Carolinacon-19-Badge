@@ -62,15 +62,21 @@ jobs:
     - run: |
         mv output/gerber-files/jlcpcb-gerber.zip ${{ env.GERBERS_JLCPCB }}.zip
 
-    - name: Release Gerbers
-      uses: svenstaro/upload-release-action@v2
-      if: startsWith(github.ref, 'refs/tags/')
-      with:
-        file: ${{ env.GERBERS_JLCPCB }}.zip
-        tag: ${{ github.ref_name }}
-        overwrite: true
-        body: "![Preview](./thumbnails/top.png)"
+    # - name: Release Gerbers
+    #   uses: svenstaro/upload-release-action@v2
+    #   if: startsWith(github.ref, 'refs/tags/')
+    #   with:
+    #     file: ${{ env.GERBERS_JLCPCB }}.zip
+    #     tag: ${{ github.ref_name }}
+    #     overwrite: true
+    #     body: "![Preview](./thumbnails/top.png)"
         
-
-
+    - name: Release Gerbers
+      uses: softprops/action-gh-release@v1
+      #if: startsWith(github.ref, 'refs/tags/')
+      with:
+        files: |
+          ${{ env.GERBERS_JLCPCB }}.zip
+          ./output/thumbnails/top.png
+        body: "![Preview](./thumbnails/top.png)"
 
