@@ -41,12 +41,12 @@ jobs:
         name: ${{ env.GERBERS_JLCPCB }}.zip
         path: output/gerber-files/jlcpcb-gerber.zip
 
-    # - run: |
-    #     mv output/gerber-files/jlcpcb-gerber.zip ${{ env.GERBERS_JLCPCB }}.zip
+
+        
+    - run: |
+        mv output/gerber-files/jlcpcb-gerber.zip ${{ env.GERBERS_JLCPCB }}.zip
 
     - name: Release Gerbers
-      run: |
-        mv output/gerber-files/jlcpcb-gerber.zip ${{ env.GERBERS_JLCPCB }}.zip
       uses: svenstaro/upload-release-action@v2
       #if: startsWith(github.ref, 'refs/tags/')
       with:
