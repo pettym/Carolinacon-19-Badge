@@ -1,4 +1,4 @@
-name: "KiBot - test"
+name: "KiBot"
 
 on:
   push:
