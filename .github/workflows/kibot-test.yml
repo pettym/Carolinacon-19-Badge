@@ -27,12 +27,12 @@ jobs:
       run: |
         kibot -d output -c .kibot/config.kibot.yaml
 
-    - name: Thumbnail Artifacts
-      uses: actions/upload-artifact@v3
-      with:
-        name: thumbnail-top.png
-        path: output/thumbnails/*top.png
-        target: hello-target
+    # - name: Thumbnail Artifacts
+    #   uses: actions/upload-artifact@v3
+    #   with:
+    #     name: thumbnail-top.png
+    #     path: output/thumbnails/*top.png
+    #     target: hello-target
 
     - name: JLCPCB Artifacts
       uses: actions/upload-artifact@v3
@@ -51,7 +51,7 @@ jobs:
         assert_name: name_of_asset
         tag: ${{ github.ref_name }}
         overwrite: true
-        body: "![Preview](./thumbnails/cc-19-badge-top.png)"
+        body: "![Preview](./thumbnails/top.png)"
 
 
 

@@ -122,6 +122,7 @@ outputs:
     dir: thumbnails
     options:
       format: png
+      output: "top.png"
 
   # - name: '3d Render'
   #   type: render_3d
