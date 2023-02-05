@@ -31,8 +31,6 @@ jobs:
 
 
     - name: Thumbnails
-      # if: |
-      #   (github.event_name == 'pull_request')
       run: |
         mkdir -p thumbnails
         rm -f thumbnails/* || true
@@ -63,7 +61,7 @@ jobs:
 
     - name: Release Gerbers
       uses: svenstaro/upload-release-action@v2
-      #if: startsWith(github.ref, 'refs/tags/')
+      if: startsWith(github.ref, 'refs/tags/')
       with:
         file: ${{ env.GERBERS_JLCPCB }}.zip
         tag: ${{ github.ref_name }}
