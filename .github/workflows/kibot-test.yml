@@ -43,13 +43,15 @@ jobs:
     - run: |
         mv output/gerber-files/jlcpcb-gerber.zip ${{ env.GERBER_JLCPCB }}.zip
 
+
+
     - name: Release Gerbers
       uses: svenstaro/upload-release-action@v2
       if: startsWith(github.ref, 'refs/tags/')
       with:
         file: ${{ env.GERBER_JLCPCB }}.zip
         tag: ${{ github.ref_name }}
-        overwrite: false
+        overwrite: true
 
 
 
