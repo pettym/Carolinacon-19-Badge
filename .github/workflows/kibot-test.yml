@@ -7,7 +7,7 @@ on:
       - '**/*.kibot.yaml'
     tags:
       - '*'
-    branch:
+    branches:
       - '!main'
       
 
