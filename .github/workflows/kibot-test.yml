@@ -39,6 +39,12 @@ jobs:
         args: zip --junk-paths -r ${{ env.GERBERS_JLCPCB }}.zip output/thumbnails
 
 
+    - name: Thumbnail Artifacts
+      uses: actions/upload-artifact@v3
+      with:
+        name: cc-19-badge-top.png
+        path: output/thumbnails/
+
     - name: JLCPCB Artifacts
       uses: actions/upload-artifact@v3
       with:
