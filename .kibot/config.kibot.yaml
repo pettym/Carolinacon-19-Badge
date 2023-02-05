@@ -1,0 +1,130 @@
+kibot:
+  version: 1
+
+preflight:
+   run_erc: false
+   run_drc: false
+   update_xml: true
+   check_zone_fills: true
+   ignore_unconnected: false
+   
+   set_text_variables:
+     - name: repo
+       command: echo "${GITHUB_REPOSITORY}" | awk -F / '{ print $NF }'
+       
+     - name: version
+       command: echo "${VERSION:=${GITHUB_REF_NAME:=no_version}}"
+       
+     - name: date
+       command: date +"%B %d, %Y"
+       #command: date +"%Y-%m-%d"
+
+     
+outputs:
+  ##########################
+  # Gerber File Generation #
+  ##########################
+
+  - name: jlcpcb-gerbers
+    type: gerber
+    category: fabrication/jlcpcb
+    dir: fabrication-jlcpcb
+    options: &gerber_options
+      exclude_edge_layer: true
+      exclude_pads_from_silkscreen: true
+      plot_sheet_reference: false
+      plot_footprint_refs: true
+      plot_footprint_values: false
+      force_plot_invisible_refs_vals: false
+      tent_vias: true
+      use_protel_extensions: true
+      create_gerber_job_file: false
+      disable_aperture_macros: true
+      gerber_precision: 4.6
+      use_gerber_x2_attributes: false
+      use_gerber_net_attributes: false
+      line_width: 0.1
+      subtract_mask_from_silk: true
+      inner_extension_pattern: '.g%n'
+    layers:
+      - F.Cu
+      - B.Cu
+      - In1.Cu
+      - In2.Cu
+      - In3.Cu
+      - In4.Cu
+      - In5.Cu
+      - In6.Cu
+      - F.SilkS
+      - B.SilkS
+      - F.Mask
+      - B.Mask
+      - Edge.Cuts
+
+  - name: jlcpcb-drills
+    type: excellon
+    category: fabrication/jlcpcb
+    dir: fabrication-jlcpcb
+    options:
+      pth_and_npth_single_file: false
+      pth_id: '-PTH'
+      npth_id: '-NPTH'
+      metric_units: true
+      map: gerber
+      route_mode_for_oval_holes: false
+      output: "%f%i.%x"
+
+  - name: jlcpcb-gerber-file
+    type: compress
+    category: fabrication/gerber/jlcpcb
+    dir: gerber-files
+    options:
+      files:
+        - from_output: jlcpcb-gerbers
+        - from_output: jlcpcb-drills
+      move_files: true
+      output: "jlcpcb-gerber.zip"
+    
+
+  ################
+  # Generate BOM #
+  ################
+
+  - name: "BOM"
+    type: bom
+    dir: bom
+    options:
+      columns: [ "Description", "Part", "Quantity Per PCB", "Mouser Price/Stock", "Mouser Part Number", "Datasheet",
+      "Manufacturer_Name", "Manufacturer_Part_Number", "Footprint"]
+      format: HTML
+        
+  
+  # - name: 'kicad-bom'
+  #   comment: "KiCad Bom"
+  #   type: kibom
+  #   dir: bom
+
+  # - name: 'kicad-cost'
+  #   comment: "KiCad Cost"
+  #   type: kicost
+  #   dir: bom
+
+  #####################
+  # Generate Previews #
+  #####################
+
+  - name: 'Previews'
+    comment: "preview_render"
+    type: pcbdraw
+    dir: thumbnails
+    options:
+      format: png
+
+  # - name: '3d Render'
+  #   type: render_3d
+  #   dir: thumbnails
+  #   options:
+  #     auto_crop: true
+  #     rotate_x: 1
+  #     rotate_y: 1
+  #     ray_tracing: false
