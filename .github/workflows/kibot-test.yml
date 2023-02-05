@@ -55,7 +55,7 @@ jobs:
       uses: svenstaro/upload-release-action@v2
       #if: startsWith(github.ref, 'refs/tags/')
       with:
-        file: output/thumbnails/*top.png
+        file: output/thumbnails/cc-19-badge-top.png
         tag: ${{ github.ref_name }}
         overwrite: true
 
