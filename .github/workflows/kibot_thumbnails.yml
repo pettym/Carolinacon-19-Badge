@@ -18,19 +18,10 @@ jobs:
       with:
         fetch-depth: '0'
 
-
-      # Although it would make sense to have a paired down config file that only generates thumbnails:
-      # I don't want mismatched configs to be a possibility. Monolithic config.kibot.yaml only!
     - name: KiBot
       run: |
-        kibot -d output -c .kibot/config.kibot.yaml
+        kibot -d output -c .kibot/thumbnails.kibot.yaml
 
-    - name: Thumbnail Artifacts
-      uses: actions/upload-artifact@v3
-      with:
-        name: cc-19-badge-top.png
-        path: output/thumbnails/
-        
     - name: Thumbnails
       run: |
         mkdir -p thumbnails
