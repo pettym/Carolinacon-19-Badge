@@ -39,13 +39,14 @@ jobs:
         git config user.email github-actions@github.com
         git add thumbnails/.
         (git commit -m "Update Thumbnails" && git push) || true
+
         
-    - name: Thumbnail Artifacts
-      uses: actions/upload-artifact@v3
-      with:
-        name: thumbnail-top.png
-        path: output/thumbnails/*top.png
-        target: hello-target
+    # - name: Thumbnail Artifacts
+    #   uses: actions/upload-artifact@v3
+    #   with:
+    #     name: top.png
+    #     path: output/thumbnails/*top.png
+    #     target: hello-target
 
 
     
