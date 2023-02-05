@@ -11,7 +11,9 @@ build: .make-build-dir
 	-e dir=output \
 	-e out_dir=output \
 	ghcr.io/inti-cmnb/kicad6_auto_full:latest /bin/bash -c \
-	"cp -r /mnt/kibot/* . && cp -r /mnt/kibot/.kibot . && kibot -d /mnt/output -c .kibot/config.kibot.yaml; chown -R $$(id -u):$$(id -g) /mnt/output"
+	"cp -r /mnt/kibot/* . && cp -r /mnt/kibot/.kibot . &&"\
+	"kibot -d /mnt/output -c .kibot/config.kibot.yaml"\
+	";chown -R $$(id -u):$$(id -g) /mnt/output"
 
 
 .make-build-dir:
