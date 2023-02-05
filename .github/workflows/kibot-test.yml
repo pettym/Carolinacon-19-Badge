@@ -8,7 +8,7 @@ on:
       - '*'
 
 env:
-  GERBER_JLCPCB: jlcpcb-gerber-${{github.event.repository.name}}-${{github.sha}}-${{github.ref_name}}
+  GERBERS_JLCPCB: jlcpcb-gerber-${{github.event.repository.name}}-${{github.sha}}-${{github.ref_name}}
       
 jobs:
   KiBot:
@@ -37,7 +37,7 @@ jobs:
     - name: JLCPCB Artifacts
       uses: actions/upload-artifact@v3
       with:
-        name: ${{ env.GERBER_JLCPCB }}.zip
+        name: ${{ env.GERBERS_JLCPCB }}.zip
         path: output/gerber-files/jlcpcb-gerber.zip
 
     - run: |
