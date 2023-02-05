@@ -8,7 +8,7 @@ on:
       - '*'
 
 env:
-  GERBERS_JLCPCB: jlcpcb-files-${{github.event.repository.name}}-${{github.sha}}-${{github.ref_name}}
+  GERBER_JLCPCB: jlcpcb-gerber-${{github.event.repository.name}}-${{github.sha}}-${{github.ref_name}}
       
 jobs:
   KiBot:
@@ -37,16 +37,18 @@ jobs:
     - name: JLCPCB Artifacts
       uses: actions/upload-artifact@v3
       with:
-        name: ${{ env.GERBERS_JLCPCB }}.zip
+        name: ${{ env.GERBER_JLCPCB }}.zip
         path: output/gerber-files/jlcpcb-gerber.zip
 
+    - run: |
+        mv output/gerber-files/jlcpcb-gerber.zip output/$GERBER_JLCPCB
 
     - name: Release Gerbers
       uses: svenstaro/upload-release-action@v2
       env:
         GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
       with:
-        file: ${{ env.GERBERS_JLCPCB }}.zip
+        file: ${{ env.GERBER_JLCPCB }}.zip
         tag: ${{ github.ref_name }}
         overwrite: false
 
