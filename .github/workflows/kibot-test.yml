@@ -7,8 +7,11 @@ on:
       - '**/*.kibot.yaml'
     tags:
       - '*'
-    branches:
-      - '!main'
+
+    # Will this cause tags to not work also??
+    branches-ignore:
+      - 'master'
+      - 'main'
       
 
 env:
@@ -56,8 +59,7 @@ jobs:
 
         
     - run: |
-        mv output/gerber-files/jlcpcb-gerber.zip ${{ env.GERBERS_JLCPCB }}.zip ; ls
-
+        mv output/gerber-files/jlcpcb-gerber.zip ${{ env.GERBERS_JLCPCB }}.zip
 
     - name: Release Gerbers
       uses: softprops/action-gh-release@v1
