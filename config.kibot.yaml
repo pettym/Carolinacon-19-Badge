@@ -11,10 +11,6 @@ preflight:
    set_text_variables:
      - name: repo
        command: echo "${GITHUB_REPOSITORY}" | awk -F / '{ print $NF }'
-
-       # This is broken currently as the pipeline pushes to repo to add thumbnails
-#      - name: sha
-#        command: "echo ${GITHUB_SHA}"
        
      - name: version
        command: echo "${VERSION:=${GITHUB_REF_NAME:=no_version}}"
@@ -22,7 +18,6 @@ preflight:
      - name: date
        command: date +"%B %d, %Y"
        #command: date +"%Y-%m-%d"
-
 
      
 outputs:
