@@ -75,6 +75,7 @@ jobs:
       uses: softprops/action-gh-release@v1
       #if: startsWith(github.ref, 'refs/tags/')
       with:
+        tag_name: ${{ github.ref_name }}
         files: |
           ${{ env.GERBERS_JLCPCB }}.zip
           ./output/thumbnails/top.png
