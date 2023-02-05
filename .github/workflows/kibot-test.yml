@@ -43,8 +43,8 @@ jobs:
 
 
         
-    - run: |
-        mv output/gerber-files/jlcpcb-gerber.zip ${{ env.GERBERS_JLCPCB }}.zip
+    # - run: |
+    #     mv output/gerber-files/jlcpcb-gerber.zip ${{ env.GERBERS_JLCPCB }}.zip
 
     - name: Release Gerbers
       uses: svenstaro/upload-release-action@v2
