@@ -2,12 +2,11 @@ name: "KiBot - test"
 
 on:
   push:
+    paths:
+      - '**/*.kicad*'
+      - '**/*.kibot.yaml'
     tags:
       - '*'
-    branches:
-      - '*'
-  pull_request:
-    types: ["opened", "edited"]
 
 env:
   GERBERS_JLCPCB: jlcpcb-gerber-${{github.event.repository.name}}-${{github.sha}}-${{github.ref_name}}
@@ -30,6 +29,7 @@ jobs:
         kibot -d output -c .kibot/config.kibot.yaml
 
 
+
     - name: Thumbnails
       if: |
         (! startsWith(github.ref, 'refs/heads/master')) &&
@@ -43,37 +43,22 @@ jobs:
         git add thumbnails/.
         (git commit -m "Update Thumbnails" && git push) || true
 
-        
-    # - name: Thumbnail Artifacts
-    #   uses: actions/upload-artifact@v3
-    #   with:
-    #     name: top.png
-    #     path: output/thumbnails/*top.png
-    #     target: hello-target
-
-
     
     - name: JLCPCB Artifacts
       uses: actions/upload-artifact@v3
       with:
         name: ${{ env.GERBERS_JLCPCB }}.zip
         path: output/gerber-files/jlcpcb-gerber.zip
+
+
         
     - run: |
-        mv output/gerber-files/jlcpcb-gerber.zip ${{ env.GERBERS_JLCPCB }}.zip
+        mv output/gerber-files/jlcpcb-gerber.zip ${{ env.GERBERS_JLCPCB }}.zip ; ls
 
-    # - name: Release Gerbers
-    #   uses: svenstaro/upload-release-action@v2
-    #   if: startsWith(github.ref, 'refs/tags/')
-    #   with:
-    #     file: ${{ env.GERBERS_JLCPCB }}.zip
-    #     tag: ${{ github.ref_name }}
-    #     overwrite: true
-    #     body: "![Preview](./thumbnails/top.png)"
-        
+
     - name: Release Gerbers
       uses: softprops/action-gh-release@v1
-      #if: startsWith(github.ref, 'refs/tags/')
+      if: startsWith(github.ref, 'refs/tags/')
       with:
         tag_name: ${{ github.ref_name }}
         files: |
