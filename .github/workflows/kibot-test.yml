@@ -57,6 +57,7 @@ jobs:
       with:
         name: cc-19-badge-top.png
         path: output/thumbnails/
+        target: hello-target
 
     - name: JLCPCB Artifacts
       uses: actions/upload-artifact@v3
