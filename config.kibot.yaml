@@ -25,10 +25,10 @@ outputs:
   # Gerber File Generation #
   ##########################
 
-  - name: JLCPCB_gerbers
-    comment: Gerbers compatible with JLCPCB
+  - name: jlcpcb-gerbers
     type: gerber
-    dir: jlcpcb_gerber_and_drill
+    category: fabrication/jlcpcb
+    dir: fabrication-jlcpcb
     options: &gerber_options
       exclude_edge_layer: true
       exclude_pads_from_silkscreen: true
@@ -61,10 +61,10 @@ outputs:
       - B.Mask
       - Edge.Cuts
 
-  - name: JLCPCB_drill
-    comment: Drill files compatible with JLCPCB
+  - name: jlcpcb-drills
     type: excellon
-    dir: jlcpcb_gerber_and_drill
+    category: fabrication/jlcpcb
+    dir: fabrication-jlcpcb
     options:
       pth_and_npth_single_file: false
       pth_id: '-PTH'
@@ -73,7 +73,18 @@ outputs:
       map: gerber
       route_mode_for_oval_holes: false
       output: "%f%i.%x"
-      
+
+  - name: jlcpcb-gerber-file
+    type: compress
+    category: fabrication/gerber/jlcpcb
+    dir: gerber-files
+    options:
+      files:
+        - from_output: jlcpcb-gerbers
+        - from_output: jlcpcb-drills
+      move_files: true
+      output: "jlcpcb-gerber.zip"
+    
 
   ################
   # Generate BOM #

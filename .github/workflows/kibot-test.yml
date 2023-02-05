@@ -25,7 +25,7 @@ jobs:
 
     - name: KiBot
       run: |
-        kibot -d output -c .kibot/config.kibot.yaml
+        kibot -d output
         
     - name: zip gerber files
       uses: montudor/action-zip@v1
@@ -50,7 +50,7 @@ jobs:
       uses: actions/upload-artifact@v3
       with:
         name: ${{ env.GERBERS_JLCPCB }}.zip
-        path: output/jlcpcb_gerber_and_drill
+        path: output/gerber-files/jlcpcb-gerber.zip
 
     # - name: Release Gerbers
     #   uses: svenstaro/upload-release-action@v2
