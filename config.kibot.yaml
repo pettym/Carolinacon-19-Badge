@@ -97,8 +97,6 @@ outputs:
     dir: thumbnails
     options:
       format: png
-      units: mm
-      metric_units: true
 
   # - name: '3d Render'
   #   type: render_3d
