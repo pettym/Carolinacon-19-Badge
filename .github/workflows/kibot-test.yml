@@ -55,8 +55,6 @@ jobs:
       with:
         name: ${{ env.GERBERS_JLCPCB }}.zip
         path: output/gerber-files/jlcpcb-gerber.zip
-
-
         
     - run: |
         mv output/gerber-files/jlcpcb-gerber.zip ${{ env.GERBERS_JLCPCB }}.zip
