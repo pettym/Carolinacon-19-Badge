@@ -1,7 +1,5 @@
 kibot:
   version: 1
-global:
-  units: mm
 
 preflight:
    run_erc: false
@@ -13,10 +11,6 @@ preflight:
    set_text_variables:
      - name: repo
        command: echo "${GITHUB_REPOSITORY}" | awk -F / '{ print $NF }'
-
-       # This is broken currently as the pipeline pushes to repo to add thumbnails
-#      - name: sha
-#        command: "echo ${GITHUB_SHA}"
        
      - name: version
        command: echo "${VERSION:=${GITHUB_REF_NAME:=no_version}}"
@@ -103,7 +97,7 @@ outputs:
     dir: thumbnails
     options:
       format: png
-      units: mm
+      units: millimeters
 
   # - name: '3d Render'
   #   type: render_3d
