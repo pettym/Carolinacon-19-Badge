@@ -74,6 +74,10 @@
     )
   )
 
+  (property "date" "February 05, 2023")
+  (property "repo" "")
+  (property "version" "no_version")
+
   (net 0 "")
   (net 1 "GND")
   (net 2 "+3.3V")
