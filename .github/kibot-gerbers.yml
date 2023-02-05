@@ -9,7 +9,7 @@ on:
     #   - 'master'
 
 env:
-  GERBER_JLCPCB: jlcpcb-gerber-${{github.event.repository.name}}-${{github.sha}}-${{github.ref_name}}
+  GERBERS_JLCPCB: jlcpcb-gerber-${{github.event.repository.name}}-${{github.sha}}-${{github.ref_name}}
       
 jobs:
   KiBot:
@@ -21,9 +21,6 @@ jobs:
       with:
         fetch-depth: '0'
 
-    - run: |
-        env
-
     - name: KiBot
       run: |
         kibot -d output -c .kibot/config.kibot.yaml
@@ -32,7 +29,7 @@ jobs:
       uses: actions/upload-artifact@v3
       with:
         name: ${{ env.GERBERS_JLCPCB }}.zip
-        path: output/jlcpcb_gerber_and_drill
+        path: output/gerber-files/jlcpcb-gerber.zip
 
     - run: |
         mv output/gerber-files/jlcpcb-gerber.zip ${{ env.GERBER_JLCPCB }}.zip
