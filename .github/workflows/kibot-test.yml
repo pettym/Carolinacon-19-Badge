@@ -30,7 +30,7 @@ jobs:
     - name: Thumbnail Artifacts
       uses: actions/upload-artifact@v3
       with:
-        #name: top.png
+        name: thumbnail-top.png
         path: output/thumbnails/*top.png
         target: hello-target
 

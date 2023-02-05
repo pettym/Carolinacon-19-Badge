@@ -81,7 +81,10 @@ outputs:
     options:
       files:
         - from_output: jlcpcb-gerbers
+          dest: "/"
         - from_output: jlcpcb-drills
+          dest: "/"
+
       move_files: true
       output: "jlcpcb-gerber.zip"
     
