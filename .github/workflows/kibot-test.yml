@@ -6,6 +6,8 @@ on:
       - '*'
     branches:
       - '*'
+  pull_request:
+    types: ["opened", "edited"]
 
 env:
   GERBERS_JLCPCB: jlcpcb-gerber-${{github.event.repository.name}}-${{github.sha}}-${{github.ref_name}}
