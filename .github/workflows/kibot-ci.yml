@@ -66,5 +66,5 @@ jobs:
         files: |
           ${{ env.GERBERS_JLCPCB }}.zip
           ./output/thumbnails/top.png
-        body: "![Preview](./thumbnails/top.png)"
+        #body: "![Preview](./thumbnails/top.png)"
 
