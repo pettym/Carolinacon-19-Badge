@@ -19,8 +19,6 @@ preflight:
        command: date +"%B %d, %Y"
        #command: date +"%Y-%m-%d"
 
-
-
 outputs:
   ##########################
   # Gerber File Generation #

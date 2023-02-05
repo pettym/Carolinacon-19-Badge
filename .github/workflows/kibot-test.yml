@@ -48,7 +48,7 @@ jobs:
       #if: startsWith(github.ref, 'refs/tags/')
       with:
         file: ${{ env.GERBER_JLCPCB }}.zip
-        assert_name: name_of_asset
+#        assert_name: name_of_asset
         tag: ${{ github.ref_name }}
         overwrite: true
         body: "![Preview](./thumbnails/top.png)"
