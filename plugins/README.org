@@ -1,4 +1,4 @@
 #+STARTUP: showall
 
-- ~~/.local/share/kicad/6.0/scripting/plugins~
+- ~$(HOME)/.local/share/kicad/6.0/scripting/plugins~
 - (is there a place to put plugins only for a specific project?)
