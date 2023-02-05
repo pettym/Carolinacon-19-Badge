@@ -31,8 +31,8 @@ jobs:
 
 
     - name: Thumbnails
-      if: |
-        (github.event_name == 'pull_request')
+      # if: |
+      #   (github.event_name == 'pull_request')
       run: |
         mkdir -p thumbnails
         rm -f thumbnails/* || true
