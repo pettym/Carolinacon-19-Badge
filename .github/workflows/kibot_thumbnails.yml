@@ -4,9 +4,7 @@ on:
   push:
     paths:
       - '*.kicad*'
-      - '*.kibot.yaml'
-    branches:
-      - '*'
+      - '**/*.kibot.yaml'
   repository_dispatch:
     types: [run_qs]
 
