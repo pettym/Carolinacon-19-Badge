@@ -20,7 +20,7 @@ jobs:
 
     - name: KiBot
       run: |
-        kibot -d output -c .kibot/thumbnails.kibot.yaml
+        kibot -d output -c .kibot/config.kibot.yaml
 
     - name: Thumbnails
       run: |
