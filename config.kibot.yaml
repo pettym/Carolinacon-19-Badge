@@ -3,8 +3,8 @@ kibot:
 
 preflight:
    run_erc: false
+   run_drc: true
    update_xml: true
-   run_drc: false
    check_zone_fills: true
    ignore_unconnected: false
    
@@ -47,8 +47,6 @@ outputs:
       subtract_mask_from_silk: true
       inner_extension_pattern: '.g%n'
     layers:
-      # Note: a more generic approach is to use 'copper' but then the filenames
-      # are slightly different.
       - F.Cu
       - B.Cu
       - In1.Cu
@@ -80,12 +78,25 @@ outputs:
   ################
   # Generate BOM #
   ################
-    
-  - name: 'kicad-bom'
-    comment: "KiCad Bom"
-    type: kibom
-    dir: bom
 
+  - name: "BOM"
+    type: bom
+    dir: bom
+    options:
+      columns: [ "Description", "Part", "Quantity Per PCB", "Mouser Price/Stock", "Mouser Part Number", "Datasheet",
+      "Manufacturer_Name", "Manufacturer_Part_Number", "Footprint"]
+      format: HTML
+        
+  
+  # - name: 'kicad-bom'
+  #   comment: "KiCad Bom"
+  #   type: kibom
+  #   dir: bom
+
+  # - name: 'kicad-cost'
+  #   comment: "KiCad Cost"
+  #   type: kicost
+  #   dir: bom
 
   #####################
   # Generate Previews #
