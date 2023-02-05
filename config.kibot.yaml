@@ -1,5 +1,7 @@
 kibot:
   version: 1
+global:
+  units: mm
 
 preflight:
    run_erc: false
@@ -22,7 +24,6 @@ preflight:
      - name: date
        command: date +"%B %d, %Y"
        #command: date +"%Y-%m-%d"
-
 
      
 outputs:
