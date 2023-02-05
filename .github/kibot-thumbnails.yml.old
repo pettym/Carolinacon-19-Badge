@@ -4,7 +4,7 @@ on:
   push:
     paths:
       - '*.kicad*'
-      - '*.kibot.yaml'
+      - '**/*.kibot.yaml'
   repository_dispatch:
     types: [run_qs]
 
@@ -18,13 +18,9 @@ jobs:
       with:
         fetch-depth: '0'
 
-
-      # Although it would make sense to have a paired down config file that only generates thumbnails:
-      # I don't want mismatched configs to be a possibility. Monolithic config.kibot.yaml only!
     - name: KiBot
       run: |
-        kibot -d output
-
+        kibot -d output -c .kibot/config.kibot.yaml
 
     - name: Thumbnails
       run: |
