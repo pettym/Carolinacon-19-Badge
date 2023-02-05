@@ -4,7 +4,7 @@
 
 # Carolinacon 19 Badge
 
-![Preview](./thumbnails/cc-19-badge-top.png)
+![Preview](./thumbnails/top.png)
 
 # Versions / Tagging
  1) `dev`  - prototypes development
