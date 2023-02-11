@@ -28,10 +28,10 @@ def spiral(iterator, mult=1, minimum_step=0, decimation=0):
 
     # TODO: Low Pass filter here?
 
-    if decimation:
-        x, y = zip(*data)
-        x, y = decimate(x, int(decimation)), decimate(y, int(decimation))
-        data = list(zip(x,y))
+##    if decimation:
+##        x, y = zip(*data)
+##        x, y = decimate([x,y], int(decimation), n=4, ftype='fir')
+##        data = list(zip(x,y))
 
     if minimum_step:
         output = [ data[0] ]
@@ -40,6 +40,11 @@ def spiral(iterator, mult=1, minimum_step=0, decimation=0):
             if dist(output[-1], stop) > minimum_step:
                 output.append(stop)
         data = output
+
+    if decimation:
+        x, y = zip(*data)
+        x, y = decimate([x,y], int(decimation), n=4, ftype='fir')
+        data = list(zip(x,y))
     
     start_points, stop_points = data[:-1], data[1:]
     return list(zip(start_points, stop_points))
@@ -68,21 +73,14 @@ class NFCAntennaPlugin(pcbnew.ActionPlugin):
     
     def generate_antenna(self, turn_count=7, mult=3, initial_turn=30, decimation=0, minimum_step=4, track_width=0.2):
        
-##        graph_space = concatenate((
-##            # First turn should be at lower resolution, to avoid noisy lines
-##            linspace(0, tau, 10),
-##            # Add additional "point" space to create the rest of the spiral
-##            linspace(tau, turn_count*tau, turn_count*1000),
-##            ))
-
-        graph_space =  linspace(
+        point_space =  linspace(
             initial_turn * tau,
             (initial_turn+turn_count)*tau,
             turn_count*2000
             )
 
         points_in_spiral = spiral(
-            graph_space,
+            point_space,
             mult = mult,
             decimation = decimation,
             minimum_step = minimum_step,
@@ -97,8 +95,8 @@ class NFCAntennaPlugin(pcbnew.ActionPlugin):
     def Run(self):
         self.generate_antenna(
             mult=3,
-            decimation=0,
-##            minimum_step=6
+            decimation=2,
+            minimum_step=12
             )
                        
 
@@ -113,7 +111,7 @@ if __name__ == '__main__':
     x = list(range(1000))
     y = [ int(i>500) for i in x ]
 
-    y = lowpass_filter(y)
+    x,y = decimate((x,y), q=2, n=4, ftype='fir')
 
     plt.plot(x,y)
     plt.show()
