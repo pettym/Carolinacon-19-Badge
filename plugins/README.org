@@ -1,4 +1,7 @@
 #+STARTUP: showall
 
-- ~$(HOME)/.local/share/kicad/6.0/scripting/plugins~
-- (is there a place to put plugins only for a specific project?)
+* Setup
+ - Create symlink in kicad's plugin directory
+ - ~ln -s "$(pwd)/nfc_antenna_plugin.py ~/.local/share/kicad/6.0/scripting/plugins~
+ - Run the plugin from pcbnew:
+ - [[../source_images/plugin_run_example.png]]

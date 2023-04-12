@@ -20,7 +20,7 @@
 
 We would like to thank SamacSys for providing footprint files for providing the following, including, but not limited to, parts:
 
- - `OS102011MA1QN1`
+ - `M24SR16-YDW6T_2`
 
 Carolinacon appreciates that SamacSys has opened up their part library for amateurs, hobbyists, and scrubs like me.
 
