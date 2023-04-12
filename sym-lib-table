@@ -1,7 +1,4 @@
 (sym_lib_table
-  (lib (name "OS102011MA1QN1")(type "Legacy")(uri "${KIPRJMOD}/third-party-schematics/OS102011MA1QN1.lib")(options "")(descr ""))
-  (lib (name "ST25DV04KC-IE8S3")(type "Legacy")(uri "${KIPRJMOD}/third-party-schematics/ST25DV04KC-IE8S3.lib")(options "")(descr ""))
-  (lib (name "860020372001")(type "Legacy")(uri "${KIPRJMOD}/third-party-schematics/860020372001.lib")(options "")(descr ""))
   (lib (name "K104K15X7RF5TH5")(type "Legacy")(uri "${KIPRJMOD}/third-party-schematics/K104K15X7RF5TH5.lib")(options "")(descr ""))
   (lib (name "LTL-4232")(type "Legacy")(uri "${KIPRJMOD}/third-party-schematics/LTL-4232.lib")(options "")(descr ""))
   (lib (name "M24SR16-YDW6T_2")(type "Legacy")(uri "${KIPRJMOD}/third-party-schematics/M24SR16-YDW6T_2.lib")(options "")(descr ""))
