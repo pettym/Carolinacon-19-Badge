@@ -12,9 +12,6 @@
  2) `test` - Test batch of what is intended to be final release
  
  3) `release`
-  * `release-standard`
-  * `release-speaker`
-  * `release-uber`
 
 # Legally Required Credits
 
