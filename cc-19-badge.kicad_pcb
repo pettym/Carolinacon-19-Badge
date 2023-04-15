@@ -20619,7 +20619,8 @@
     )
   )
 
-  (gr_text "${version}\n" (at 93.94 127.98) (layer "B.SilkS") (tstamp 5e356c75-7a6d-433e-acc9-92a008e7fbb4)
+  (gr_circle (center 93.6 105.75) (end 93.8 105.75) (layer "B.SilkS") (width 0.15) (fill none) (tstamp 4be9f05e-dda9-4b9d-ae03-4023d4add7f7))
+  (gr_text "${version}\n" (at 93.6 55.5) (layer "B.SilkS") (tstamp 5e356c75-7a6d-433e-acc9-92a008e7fbb4)
     (effects (font (size 2 2) (thickness 0.15)) (justify mirror))
   )
 
