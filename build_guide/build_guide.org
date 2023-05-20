@@ -1,0 +1,19 @@
+#+STARTUP: showall
+#+TITLE: Carolinacon Online 3 - Badge Build Guide
+#+SUBTITLE: [[./images/logo.png]]
+#+OPTIONS: date:nil
+#+OPTIONS: toc:nil
+#+OPTIONS: num:nil
+
+#+LATEX_HEADER: \usepackage{nopageno}
+#+LATEX_HEADER: \renewcommand{\familydefault}{\sfdefault}
+
+#+LATEX: \newpage
+
+* Parts and Tools
+
+#+LATEX: \newpage
+* Soldering
+  - Ensure 
+  [[./images/ic-alignment.png]]
+  - 
