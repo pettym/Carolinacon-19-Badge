@@ -8,12 +8,34 @@
 #+LATEX_HEADER: \usepackage{nopageno}
 #+LATEX_HEADER: \renewcommand{\familydefault}{\sfdefault}
 
+#+LATEX_HEADER: \usepackage[margin=1in]{geometry}
+#+LATEX_HEADERy: \setlength\parindent{0pt}
+
 #+LATEX: \newpage
 
 * Parts and Tools
+- In your swag bundle you will find the PCB along with a ~M24SR16-YDW6T/2~ NFC IC.
+- You will need a soldering iron, and some solder. Some flux may be used but is not required.
+  - If you are in need of a soldering iron we recommend Pine64's PINECIL.
+  - Pine64's Online Store appears to have a discounted price, however shipping may be faster if ordered through Amazon.
+- A pair of tweezers, appropriate for handling electronic components, is /highly/ recommended, although not required.
+
+* Soldering
+  - Before soldering ensure that you have aligned the indented circle on the IC to match up with the diagram on the PCB.
+   
+  [[./images/ic-alignment.png]]
+  - As this is a relatively small IC be careful to check for any inadvertent shorts created by stray solder
+  - A helpful resource for soldering is the EEVblog YouTube channel:
+    - [[https://youtu.be/b9FC9fAlfQE?t=600][EEVblog #186 - Soldering Tutorial Part 3 - Surface Mount (timestamp 10:00)]]
 
 #+LATEX: \newpage
-* Soldering
-  - Ensure 
-  [[./images/ic-alignment.png]]
-  - 
+* Programming
+  - Until you have programmed in some records, your phone's NFC auto-detection will not function.
+  - To start out, download a NFC Utility App to your phone:
+    - We recommend NFC Tools by wakdev, which is available on both IPhone and Android devices.
+
+  #+ATTR_LATEX: :width 10cm
+  [[./images/nfc-tools.png]]
+
+  - Ensure that the tag can be successfully scanned. The range is fairly short, so you may need to try scanning from the back of the badge where the coil is visible on the PCB.
+  - After successfully scanning to verify that NFC is functioning, you can then add records such as your favorite website.
