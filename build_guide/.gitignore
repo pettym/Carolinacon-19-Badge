@@ -1,0 +1,6 @@
+_minted*
+*.tex
+*.toc
+*.out
+*.log
+*.aux
