@@ -1,10 +1,14 @@
+# Carolinacon 19
+
+- The badge for Carolinacon 19 (aka Carolinacon Online 3), which took place April 22, 2023
+
 # Carolinacon Face Reveal:
 
 ![The-Faces-Of-Carolinacon](./source_images/red.png)
 
 # Carolinacon 19 Badge
 
-![Preview](./thumbnails/top.png)
+![Preview](./source_images/front.png)
 
 # Versions / Tagging
  1) `dev`  - prototypes development

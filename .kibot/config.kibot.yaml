@@ -1,4 +1,5 @@
 kibot:
+  #https://github.com/skorokithakis/KiBot
   version: 1
 
 preflight:
@@ -115,21 +116,22 @@ outputs:
   # Generate Previews #
   #####################
 
-  - name: 'Previews'
-    comment: "preview_render"
+  - name: 'Preview Front'
+    comment: "preview_front"
     type: pcbdraw
     dir: thumbnails
     options:
       format: png
-      output: "top.png"
+      bottom: false
+      output: "front.png"
 
-  # - name: '3d Render'
-  #   type: render_3d
-  #   dir: thumbnails
-  #   options:
-  #     auto_crop: true
-  #     rotate_x: 1
-  #     rotate_y: 1
-  #     ray_tracing: false
+  - name: 'Preview Back'
+    comment: "preview_back"
+    type: pcbdraw
+    dir: thumbnails
+    options:
+      format: png
+      bottom: true
+      output: "back.png"
 
   
