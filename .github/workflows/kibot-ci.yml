@@ -44,7 +44,7 @@ jobs:
         path: ./output
         if-no-files-found: error
         
-    - name: Release Gerbers
+    - name: Build Tagged Release
       uses: softprops/action-gh-release@v1
       if: startsWith(github.ref, 'refs/tags/')
       with:
