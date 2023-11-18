@@ -57,6 +57,8 @@ jobs:
     #     (git commit -m "Update Thumbnails" && git push)
 
 
+    - run: |
+        echo https://${{ github.server_url }}/${{ github.repository }}/releases/download
     
     - name: Upload Artifacts
       uses: actions/upload-artifact@v3
@@ -74,6 +76,6 @@ jobs:
           ./output/gerber-files/${{ env.GERBERS_JLCPCB }}.zip
           ./output/thumbnails/top.png
           ./output/thumbnails/back.png
-
-        body: '![Preview](https://github.com/pettym/Carolinacon-19-Badge/releases/download/${{ github.ref_name }}/top.png)'
+        body: '![Preview](https://${{ github.server_url }}/${{ github.repository }}/releases/download/${{ github.ref_name }}/top.png)'
+#        body: '![Preview](https://github.com/pettym/Carolinacon-19-Badge/releases/download/${{ github.ref_name }}/top.png)'
 
