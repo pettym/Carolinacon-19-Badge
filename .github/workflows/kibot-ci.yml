@@ -58,11 +58,14 @@ jobs:
       uses: actions/upload-artifact@v3
       with:
         name: ${{ env.GERBERS_JLCPCB }}.zip
-        path: |
-          ./output/gerber-files/${{ env.GERBERS_JLCPCB }}.zip
-          ./output/thumbnails/top.png
-          ./output/thumbnails/back.png
+        path: ./output/gerber-files/${{ env.GERBERS_JLCPCB }}.zip
 
+    - name: test Artifacts
+      uses: actions/upload-artifact@v3
+      with:
+        name: output
+        path: ./output/
+        
     - name: Release Gerbers
       uses: softprops/action-gh-release@v1
       if: startsWith(github.ref, 'refs/tags/')
