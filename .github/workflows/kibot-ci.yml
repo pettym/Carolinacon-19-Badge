@@ -56,10 +56,10 @@ jobs:
         tag_name: ${{ github.ref_name }}
         files: |
           ./output/gerber-files/${{ env.GERBERS_JLCPCB }}.zip
-          ./output/thumbnails/top.png
+          ./output/thumbnails/front.png
           ./output/thumbnails/back.png
         body: |
-          ![Preview](${{ github.server_url }}/${{ github.repository }}/releases/download/${{ github.ref_name }}/top.png)
-          ![Preview](${{ github.server_url }}/${{ github.repository }}/releases/download/${{ github.ref_name }}/back.png)
+          ![Front](${{ github.server_url }}/${{ github.repository }}/releases/download/${{ github.ref_name }}/front.png)
+          ![Back](${{ github.server_url }}/${{ github.repository }}/releases/download/${{ github.ref_name }}/back.png)
 
 
