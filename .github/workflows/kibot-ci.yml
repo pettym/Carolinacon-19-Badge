@@ -26,9 +26,8 @@ jobs:
 
     - name: checkout
       uses: actions/checkout@v4
-      # with:
-      #   submodules: recursive
-      #   token: '${{ secrets.PAT_TOKEN }}'
+      with:
+        token: '${{ secrets.GITHUB_TOKEN }}'
       
     - name: checkout submodules
       uses: actions/checkout@v4
