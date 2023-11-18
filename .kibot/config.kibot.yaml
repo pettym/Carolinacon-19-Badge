@@ -1,4 +1,5 @@
 kibot:
+  #https://github.com/skorokithakis/KiBot
   version: 1
 
 preflight:
@@ -132,14 +133,5 @@ outputs:
       format: png
       bottom: true
       output: "back.png"
-
-  # - name: '3d Render'
-  #   type: render_3d
-  #   dir: thumbnails
-  #   options:
-  #     auto_crop: true
-  #     rotate_x: 1
-  #     rotate_y: 1
-  #     ray_tracing: false
 
   
