@@ -32,7 +32,7 @@ jobs:
         fetch-depth: '0'
 
     - name: checkout submodules
-      users: actions/checkout@v4
+      uses: actions/checkout@v4
       with:
         submodules: 'true'
         token: '${{ secrets.SUBMODULE_PAT_TOKEN }}'
