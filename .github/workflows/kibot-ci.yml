@@ -41,25 +41,7 @@ jobs:
 
     - run: |
         mv ./output/gerber-files/jlcpcb-gerber.zip ./output/gerber-files/${{ env.GERBERS_JLCPCB }}.zip
-
-    # - name: Thumbnails
-    #   if: |
-    #     (! startsWith(github.ref, 'refs/heads/master')) &&
-    #     (! startsWith(github.ref, 'refs/heads/main'))
-    #   run: |
-    #     mkdir -p thumbnails
-    #     rm -f thumbnails/* || true
-    #     cp output/thumbnails/* thumbnails/. || true
-    #     git config user.name github-actions
-    #     git config user.email github-actions@github.com
-    #     git lfs install
-    #     git add thumbnails/.
-    #     (git commit -m "Update Thumbnails" && git push)
-
-
-    - run: |
-        echo https://${{ github.server_url }}/${{ github.repository }}/releases/download
-    
+   
     - name: Upload Artifacts
       uses: actions/upload-artifact@v3
       with:
@@ -76,6 +58,8 @@ jobs:
           ./output/gerber-files/${{ env.GERBERS_JLCPCB }}.zip
           ./output/thumbnails/top.png
           ./output/thumbnails/back.png
-        body: '![Preview](https://${{ github.server_url }}/${{ github.repository }}/releases/download/${{ github.ref_name }}/top.png)'
-#        body: '![Preview](https://github.com/pettym/Carolinacon-19-Badge/releases/download/${{ github.ref_name }}/top.png)'
+        body: |
+          ![Preview](${{ github.server_url }}/${{ github.repository }}/releases/download/${{ github.ref_name }}/top.png)
+          ![Preview](${{ github.server_url }}/${{ github.repository }}/releases/download/${{ github.ref_name }}/back.png)
+
 
