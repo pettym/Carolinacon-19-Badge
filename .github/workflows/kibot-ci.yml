@@ -61,10 +61,13 @@ jobs:
         path: ./output/gerber-files/${{ env.GERBERS_JLCPCB }}.zip
         if-no-files-found: error
 
+    - run: |
+        echo "what?" >> ./output/test.txt
+        
     - name: test Artifacts
       uses: actions/upload-artifact@v3
       with:
-        path: ./output/thumbnails/top.png
+        path: ./output/test.txt
         
     - name: Release Gerbers
       uses: softprops/action-gh-release@v1
