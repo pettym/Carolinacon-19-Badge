@@ -34,7 +34,7 @@ jobs:
     - name: checkout submodules
       uses: actions/checkout@v4
       with:
-        submodules: 'true'
+        submodules: recursive
         token: '${{ secrets.SUBMODULE_PAT_TOKEN }}'
 
     - run: |
