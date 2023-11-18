@@ -61,11 +61,17 @@ jobs:
       uses: actions/upload-artifact@v3
       with:
         name: ${{ env.GERBERS_JLCPCB }}.zip
-        path: output/gerber-files/jlcpcb-gerber.zip
+        path: output
+#          output/gerber-files/jlcpcb-gerber.zip
+#          output/thumbnails/top.png
+#          output/thumbnails/back.png
 
-    # What is this even doing? I forget...
-    # - run: |
-    #     mv output/gerber-files/jlcpcb-gerber.zip ${{ env.GERBERS_JLCPCB }}.zip
+
+    # This renames the generic 'jlcpcb-gerber.zip' into our full descriptive name
+    # We don't want kibot to use env.GERBERS_JLCPCB, because kibot may also be ran locally (not in pipeline)
+    # So we change the filename using the pipeline's environment... only when we are running in a CI/CD pipeline
+    - run: |
+        mv output/gerber-files/jlcpcb-gerber.zip ${{ env.GERBERS_JLCPCB }}.zip
 
     - name: Release Gerbers
       uses: softprops/action-gh-release@v1
