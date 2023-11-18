@@ -26,10 +26,10 @@ jobs:
     container: ghcr.io/inti-cmnb/kicad6_auto_full:latest    
     steps:
 
-    - name: checkout
-      uses: actions/checkout@v4
-      with:
-        fetch-depth: '0'
+    # - name: checkout
+    #   uses: actions/checkout@v4
+    #   with:
+    #     fetch-depth: '0'
 
     - name: checkout submodules
       uses: actions/checkout@v4
