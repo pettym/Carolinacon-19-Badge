@@ -1,72 +1,82 @@
-# Need to fix submodule import before this will work again
+Need to fix submodule import before this will work again
 
-# name: "KiBot"
+name: "KiBot"
 
-# on:
-#   push:
-#     paths:
-#       - '**/*.kicad*'
-#       - '**/*.kibot.yaml'
-#     tags:
-#       - '*'
+on:
+  push:
+    paths:
+      - '**/*.kicad*'
+      - '**/*.kibot.yaml'
 
-#     # Will this cause tags to not work also??
-#     branches-ignore:
-#       - 'master'
-#       - 'main'
+      # This is here for testing
+      - '**/kibot-ci.yml'
+    tags:
+      - '*'
+
+    # Will this cause tags to not work also??
+    branches-ignore:
+      - 'master'
+      - 'main'
       
 
-# env:
-#   GERBERS_JLCPCB: jlcpcb-gerber-${{github.event.repository.name}}-${{github.sha}}-${{github.ref_name}}
+env:
+  GERBERS_JLCPCB: jlcpcb-gerber-${{github.event.repository.name}}-${{github.sha}}-${{github.ref_name}}
       
-# jobs:
-#   KiBot:
-#     runs-on: ubuntu-latest
-#     container: ghcr.io/inti-cmnb/kicad6_auto_full:latest    
-#     steps:
+jobs:
+  KiBot:
+    runs-on: ubuntu-latest
+    container: ghcr.io/inti-cmnb/kicad6_auto_full:latest    
+    steps:
 
-#     - uses: actions/checkout@v3
-#       with:
-#         fetch-depth: '0'
+    - name: checkout
+      uses: actions/checkout@v3
+      with:
+        fetch-depth: '0'
 
-#     - run: |
-#         env
-
-#     - name: KiBot
-#       run: |
-#         kibot -d output -c .kibot/config.kibot.yaml
+    - name: checkout submodule
+      run: |
+        git submodule init
+        git submodule update
 
 
-#     - name: Thumbnails
-#       if: |
-#         (! startsWith(github.ref, 'refs/heads/master')) &&
-#         (! startsWith(github.ref, 'refs/heads/main'))
-#       run: |
-#         mkdir -p thumbnails
-#         rm -f thumbnails/* || true
-#         cp output/thumbnails/* thumbnails/. || true
-#         git config user.name github-actions
-#         git config user.email github-actions@github.com
-#         git add thumbnails/.
-#         (git commit -m "Update Thumbnails" && git push) || true
+    - run: |
+        env
+
+    - name: KiBot
+      run: |
+        kibot -d output -c .kibot/config.kibot.yaml
+
+
+    # - name: Thumbnails
+    #   if: |
+    #     (! startsWith(github.ref, 'refs/heads/master')) &&
+    #     (! startsWith(github.ref, 'refs/heads/main'))
+    #   run: |
+    #     mkdir -p thumbnails
+    #     rm -f thumbnails/* || true
+    #     cp output/thumbnails/* thumbnails/. || true
+    #     git config user.name github-actions
+    #     git config user.email github-actions@github.com
+    #     git add thumbnails/.
+    #     (git commit -m "Update Thumbnails" && git push) || true
 
     
-#     - name: JLCPCB Artifacts
-#       uses: actions/upload-artifact@v3
-#       with:
-#         name: ${{ env.GERBERS_JLCPCB }}.zip
-#         path: output/gerber-files/jlcpcb-gerber.zip
+    - name: JLCPCB Artifacts
+      uses: actions/upload-artifact@v3
+      with:
+        name: ${{ env.GERBERS_JLCPCB }}.zip
+        path: output/gerber-files/jlcpcb-gerber.zip
 
-#     - run: |
-#         mv output/gerber-files/jlcpcb-gerber.zip ${{ env.GERBERS_JLCPCB }}.zip
+    - run: |
+        mv output/gerber-files/jlcpcb-gerber.zip ${{ env.GERBERS_JLCPCB }}.zip
 
-#     - name: Release Gerbers
-#       uses: softprops/action-gh-release@v1
-#       if: startsWith(github.ref, 'refs/tags/')
-#       with:
-#         tag_name: ${{ github.ref_name }}
-#         files: |
-#           ${{ env.GERBERS_JLCPCB }}.zip
-#           ./output/thumbnails/top.png
-#         #body: "![Preview](./thumbnails/top.png)"
+    - name: Release Gerbers
+      uses: softprops/action-gh-release@v1
+      if: startsWith(github.ref, 'refs/tags/')
+      with:
+        tag_name: ${{ github.ref_name }}
+        files: |
+          ${{ env.GERBERS_JLCPCB }}.zip
+          ./output/thumbnails/top.png
+        #body: "![Preview](./thumbnails/top.png)"
 
