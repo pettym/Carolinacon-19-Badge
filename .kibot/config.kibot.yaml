@@ -115,13 +115,21 @@ outputs:
   # Generate Previews #
   #####################
 
-  - name: 'Previews'
-    comment: "preview_render"
+  - name: 'Preview Front'
+    comment: "preview_front"
     type: pcbdraw
     dir: thumbnails
     options:
       format: png
       output: "top.png"
+
+  - name: 'Preview Back'
+    comment: "preview_back"
+    type: pcbdraw
+    dir: thumbnails
+    options:
+      format: png
+      output: "back.png"
 
   # - name: '3d Render'
   #   type: render_3d

@@ -63,8 +63,9 @@ jobs:
         name: ${{ env.GERBERS_JLCPCB }}.zip
         path: output/gerber-files/jlcpcb-gerber.zip
 
-    - run: |
-        mv output/gerber-files/jlcpcb-gerber.zip ${{ env.GERBERS_JLCPCB }}.zip
+    # What is this even doing? I forget...
+    # - run: |
+    #     mv output/gerber-files/jlcpcb-gerber.zip ${{ env.GERBERS_JLCPCB }}.zip
 
     - name: Release Gerbers
       uses: softprops/action-gh-release@v1
@@ -74,5 +75,6 @@ jobs:
         files: |
           ${{ env.GERBERS_JLCPCB }}.zip
           ./output/thumbnails/top.png
+          ./output/thumbnails/back.png
         #body: "![Preview](./thumbnails/top.png)"
 
