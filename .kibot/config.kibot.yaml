@@ -121,7 +121,7 @@ outputs:
     dir: thumbnails
     options:
       format: png
-      side: front
+      bottom: false
       output: "front.png"
 
   - name: 'Preview Back'
@@ -130,7 +130,7 @@ outputs:
     dir: thumbnails
     options:
       format: png
-      side: back
+      bottom: true
       output: "back.png"
 
   # - name: '3d Render'
