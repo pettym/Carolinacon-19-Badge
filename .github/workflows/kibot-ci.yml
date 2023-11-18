@@ -61,15 +61,14 @@ jobs:
       uses: actions/upload-artifact@v3
       with:
         name: ${{ env.GERBERS_JLCPCB }}.zip
-        path: output
+        path: output/
 #          output/gerber-files/jlcpcb-gerber.zip
 #          output/thumbnails/top.png
 #          output/thumbnails/back.png
 
 
-    # This renames the generic 'jlcpcb-gerber.zip' into our full descriptive name
-    # We don't want kibot to use env.GERBERS_JLCPCB, because kibot may also be ran locally (not in pipeline)
-    # So we change the filename using the pipeline's environment... only when we are running in a CI/CD pipeline
+    # I don't really remember why I moved this outside of the output directory...
+    # But we also rename the gerber file into the full descriptive name (including branch/tag info)
     - run: |
         mv output/gerber-files/jlcpcb-gerber.zip ${{ env.GERBERS_JLCPCB }}.zip
 
