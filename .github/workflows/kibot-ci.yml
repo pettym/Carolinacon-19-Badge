@@ -31,14 +31,12 @@ jobs:
     #   with:
     #     fetch-depth: '0'
 
-    - name: checkout submodules
+    - name: checkout
       uses: actions/checkout@v4
       with:
         submodules: recursive
-#        token: '${{ secrets.SUBMODULE_PAT_TOKEN }}'
+        token: '${{ secrets.PAT_TOKEN }}'
 
-    - run: |
-        env
 
     - name: KiBot
       run: |
