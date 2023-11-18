@@ -64,7 +64,6 @@ jobs:
     - name: test Artifacts
       uses: actions/upload-artifact@v3
       with:
-        name: test
         path: ./output/thumbnails/top.png
         
     - name: Release Gerbers
