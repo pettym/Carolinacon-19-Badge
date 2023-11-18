@@ -1,3 +1,3 @@
 [submodule "nondistrib-pcb-library"]
 	path = nondistrib-pcb-library
-	url = ssh://git@github.com/pettym/nondistrib-pcb-library
+	url = git@github.com/pettym/nondistrib-pcb-library
