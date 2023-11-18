@@ -1,5 +1,5 @@
 (sym_lib_table
-  (lib (name "K104K15X7RF5TH5")(type "Legacy")(uri "${KIPRJMOD}/third-party-schematics/K104K15X7RF5TH5.lib")(options "")(descr ""))
-  (lib (name "LTL-4232")(type "Legacy")(uri "${KIPRJMOD}/third-party-schematics/LTL-4232.lib")(options "")(descr ""))
-  (lib (name "M24SR16-YDW6T_2")(type "Legacy")(uri "${KIPRJMOD}/third-party-schematics/M24SR16-YDW6T_2.lib")(options "")(descr ""))
+  (lib (name "K104K15X7RF5TH5")(type "Legacy")(uri "${KIPRJMOD}/nondistrib-pcb-library/third-party-schematics/K104K15X7RF5TH5.lib")(options "")(descr ""))
+  (lib (name "LTL-4232")(type "Legacy")(uri "${KIPRJMOD}/nondistrib-pcb-library/third-party-schematics/LTL-4232.lib")(options "")(descr ""))
+  (lib (name "M24SR16-YDW6T_2")(type "Legacy")(uri "${KIPRJMOD}/nondistrib-pcb-library/third-party-schematics/M24SR16-YDW6T_2.lib")(options "")(descr ""))
 )
