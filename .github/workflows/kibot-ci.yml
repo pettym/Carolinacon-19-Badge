@@ -54,20 +54,18 @@ jobs:
     #     (git commit -m "Update Thumbnails" && git push) || true
 
 
-    - name: JLCPCB Artifacts
-      uses: actions/upload-artifact@v3
-      with:
-        name: ${{ env.GERBERS_JLCPCB }}
-        path: ./output/gerber-files/${{ env.GERBERS_JLCPCB }}.zip
-        if-no-files-found: error
+    # - name: JLCPCB Artifacts
+    #   uses: actions/upload-artifact@v3
+    #   with:
+    #     name: ${{ env.GERBERS_JLCPCB }}
+    #     path: ./output/gerber-files/${{ env.GERBERS_JLCPCB }}.zip
+    #     if-no-files-found: error
 
-    - run: |
-        echo "what?" >> ./output/test.txt
-        
-    - name: test Artifacts
+    - name: Upload Artifacts
       uses: actions/upload-artifact@v3
       with:
-        path: ./output/test.txt
+        path: ./output/
+        if-no-files-found: error
         
     - name: Release Gerbers
       uses: softprops/action-gh-release@v1
