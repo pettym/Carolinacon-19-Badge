@@ -57,14 +57,15 @@ jobs:
     - name: JLCPCB Artifacts
       uses: actions/upload-artifact@v3
       with:
-        name: ${{ env.GERBERS_JLCPCB }}.zip
+        name: ${{ env.GERBERS_JLCPCB }}
         path: ./output/gerber-files/${{ env.GERBERS_JLCPCB }}.zip
+        if-no-files-found: error
 
     - name: test Artifacts
       uses: actions/upload-artifact@v3
       with:
-        name: output
-        path: ./output/
+        name: test
+        path: ./output/thumbnails/top.png
         
     - name: Release Gerbers
       uses: softprops/action-gh-release@v1
