@@ -64,7 +64,8 @@ jobs:
     - name: Upload Artifacts
       uses: actions/upload-artifact@v3
       with:
-        path: ./output/
+        name: artifacts-${{github.sha}}
+        path: ./output
         if-no-files-found: error
         
     - name: Release Gerbers
