@@ -23,13 +23,8 @@ jobs:
     runs-on: ubuntu-latest
     container: ghcr.io/inti-cmnb/kicad6_auto_full:latest    
     steps:
-
-    - name: checkout
-      uses: actions/checkout@v4
-      with:
-        token: '${{ secrets.GITHUB_TOKEN }}'
       
-    - name: checkout submodules
+    - name: checkout
       uses: actions/checkout@v4
       with:
         submodules: recursive
