@@ -31,6 +31,7 @@ jobs:
       with:
         submodules: 'true'
         fetch-depth: '0'
+        token: ${{ secrets.SUBMODULE_PAT_TOKEN }}
 
     - run: |
         env
