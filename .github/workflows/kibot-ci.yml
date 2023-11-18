@@ -26,21 +26,18 @@ jobs:
     container: ghcr.io/inti-cmnb/kicad6_auto_full:latest    
     steps:
 
-    # - name: checkout
-    #   uses: actions/checkout@v4
-    #   with:
-    #     fetch-depth: '0'
-
     - name: checkout
       uses: actions/checkout@v4
       with:
         submodules: recursive
         token: '${{ secrets.PAT_TOKEN }}'
 
-
     - name: KiBot
       run: |
         kibot -d output -c .kibot/config.kibot.yaml
+
+    - run: |
+        mv ./output/gerber-files/jlcpcb-gerber.zip ./output/gerber-files/${{ env.GERBERS_JLCPCB }}.zip
 
 
     # - name: Thumbnails
@@ -56,21 +53,15 @@ jobs:
     #     git add thumbnails/.
     #     (git commit -m "Update Thumbnails" && git push) || true
 
-    
+
     - name: JLCPCB Artifacts
       uses: actions/upload-artifact@v3
       with:
         name: ${{ env.GERBERS_JLCPCB }}.zip
-        path: output/
-#          output/gerber-files/jlcpcb-gerber.zip
-#          output/thumbnails/top.png
-#          output/thumbnails/back.png
-
-
-    # I don't really remember why I moved this outside of the output directory...
-    # But we also rename the gerber file into the full descriptive name (including branch/tag info)
-    - run: |
-        mv output/gerber-files/jlcpcb-gerber.zip ${{ env.GERBERS_JLCPCB }}.zip
+        path: |
+          ./output/gerber-files/${{ env.GERBERS_JLCPCB }}.zip
+          ./output/thumbnails/top.png
+          ./output/thumbnails/back.png
 
     - name: Release Gerbers
       uses: softprops/action-gh-release@v1
@@ -78,7 +69,7 @@ jobs:
       with:
         tag_name: ${{ github.ref_name }}
         files: |
-          ${{ env.GERBERS_JLCPCB }}.zip
+          ./output/gerber-files/${{ env.GERBERS_JLCPCB }}.zip
           ./output/thumbnails/top.png
           ./output/thumbnails/back.png
         #body: "![Preview](./thumbnails/top.png)"
